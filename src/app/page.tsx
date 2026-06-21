@@ -14,29 +14,21 @@ interface Route {
 }
 
 const routes: Route[] = [
-  { 
-    id: "ibiza-mallorca", 
-    name: "Ibiza ↔ Mallorca", 
-    distance: "130 km", 
-    timeVTOL: "25 min", 
+  {
+    id: "ibiza-mallorca",
+    name: "Ibiza ↔ Palma de Mallorca",
+    distance: "140 km",
+    timeVTOL: "33 min",
     timeFerry: "2h 30m",
     coords: { x1: 100, y1: 200, x2: 260, y2: 140 }
   },
-  { 
-    id: "mallorca-menorca", 
-    name: "Mallorca ↔ Menorca", 
-    distance: "80 km", 
-    timeVTOL: "16 min", 
+  {
+    id: "mallorca-menorca",
+    name: "Palma de Mallorca ↔ Menorca",
+    distance: "132 km",
+    timeVTOL: "31 min",
     timeFerry: "1h 45m",
     coords: { x1: 260, y1: 140, x2: 410, y2: 90 }
-  },
-  { 
-    id: "ibiza-formentera", 
-    name: "Ibiza ↔ Formentera", 
-    distance: "20 km", 
-    timeVTOL: "5 min", 
-    timeFerry: "35 min",
-    coords: { x1: 100, y1: 200, x2: 90, y2: 240 }
   },
 ];
 
@@ -49,11 +41,11 @@ interface KPI {
 }
 
 const kpis: KPI[] = [
-  { id: "range", value: "120 km", label: "Autonomia", desc: "Densidade energética otimizada para voos inter-ilhas rápidos e eficientes, sem escalas intermédias." },
-  { id: "speed", value: "306 km/h", label: "Velocidade Cruzeiro", desc: "Velocidade de cruzeiro excecional proporcionada pela aerodinâmica avançada e propulsão distribuída." },
-  { id: "noise", value: "< 35 dB", label: "Nível de Ruído", desc: "Operação ultra-silenciosa, inferior ao ruído de fundo residencial, ideal para a conservação ecológica." },
-  { id: "emissions", value: "0 g", label: "Emissões CO₂/km", desc: "Propulsão 100% sustentável com emissões diretas nulas de carbono para proteger o ecossistema regional." },
-  { id: "weight", value: "2 595 kg", label: "MTOW (Peso Máx.)", desc: "Peso máximo de descolagem otimizado para descolagem vertical estável e máxima eficiência estrutural." },
+  { id: "range", value: "140 km", label: "Autonomia", desc: "Rota principal Ibiza–Palma de Mallorca com 140 km de extensão, coberta sem escalas com o sistema híbrido Li-S + PEMFC H₂." },
+  { id: "speed", value: "306 km/h", label: "Velocidade Cruzeiro", desc: "85 m/s em cruzeiro a 3 000 ft, proporcionados pela aerodinâmica avançada da asa de razão de aspeto 9 e propulsão elétrica distribuída." },
+  { id: "noise", value: "62 dB", label: "Ruído em Cruzeiro", desc: "Nível de pressão sonora em altitude de cruzeiro — comparável a uma conversa normal. Os ducted fans reduzem o ruído em 8–10 dB face a rotores abertos equivalentes." },
+  { id: "emissions", value: "0 g", label: "Emissões CO₂/km", desc: "Zero emissões diretas em voo com H₂ verde. A análise de ciclo de vida completo aponta para 14,97 kg CO₂-eq por voo com hidrogénio renovável." },
+  { id: "weight", value: "2 595 kg", label: "MTOW (Peso Máx.)", desc: "Peso máximo de descolagem: estrutura 692 kg, propulsão 417 kg, bateria Li-S 371 kg, célula PEMFC 130 kg, H₂ 16,6 kg e payload de 4 PAX + bagagem." },
 ];
 
 export default function Home() {
@@ -251,7 +243,7 @@ export default function Home() {
               <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-lg p-3.5 text-xs text-emerald-400/90 leading-relaxed">
                 🚀 O <strong>Island Hopper</strong> poupa aproximadamente{" "}
                 <span className="font-bold underline">
-                  {activeRoute === "ibiza-mallorca" ? "2 horas e 5 minutos" : activeRoute === "mallorca-menorca" ? "1 hora e 29 minutos" : "30 minutos"}
+                  {activeRoute === "ibiza-mallorca" ? "1 hora e 57 minutos" : "1 hora e 14 minutos"}
                 </span>{" "}
                 de viagem nesta ligação inter-ilhas.
               </div>
