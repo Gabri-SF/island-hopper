@@ -157,7 +157,7 @@ export default function Home() {
             
             <div className="relative rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl animate-float">
               <Image 
-                src="/island_hopper_vtol.jpg"
+                src="/island_hopper_vtol.png"
                 alt="Conceito do eVTOL Island Hopper em voo pelas Ilhas Baleares"
                 width={800}
                 height={450}
