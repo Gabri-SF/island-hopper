@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+
+const basePath = "/island-hopper";
 
 // Route data for interactive map
 interface Route {
@@ -156,13 +157,13 @@ export default function Home() {
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-blue-500 opacity-20 blur-xl group-hover:opacity-40 transition-all duration-700" />
             
             <div className="relative rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl animate-float">
-              <Image 
-                src="/island_hopper_vtol.png"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/island_hopper_vtol.png`}
                 alt="Conceito do eVTOL Island Hopper em voo pelas Ilhas Baleares"
                 width={800}
                 height={450}
                 className="w-full h-auto object-cover transform hover:scale-105 transition-all duration-700"
-                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
