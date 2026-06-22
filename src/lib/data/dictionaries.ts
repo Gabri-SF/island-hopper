@@ -885,7 +885,7 @@ export const dictionaries = {
         cruise: { label: "Cruzeiro", value: "32,30 kWh" },
         descent: {
           label: "Descida + Aterragem",
-          value: "~0 kWh (regenerativo)",
+          value: "2.44 kWh (regenerativo)",
         },
       },
       summary: {
@@ -2017,7 +2017,7 @@ export const dictionaries = {
         vtol: { label: "VTOL + Hover Segments", value: "20.20 kWh" },
         climb: { label: "Climb Phase", value: "21.60 kWh" },
         cruise: { label: "Cruise Profile", value: "32.30 kWh" },
-        descent: { label: "Descent & Landing", value: "~0 kWh (regenerative)" },
+        descent: { label: "Descent & Landing", value: "2.44 kWh (regenerative)" },
       },
       summary: {
         totalLabel: "Total Mission Profile Allocation",

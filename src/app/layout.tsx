@@ -26,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={`${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-50">
+      <body className="relative min-h-full flex flex-col bg-zinc-950 text-zinc-50">
+        <div className="fixed inset-0 grid-bg pointer-events-none z-0 opacity-80" />
+        <div className="fixed top-[-10%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+        <div className="fixed top-[20%] right-[5%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none z-0" />
         {/* Wrap the layout components with the Provider */}
         <LanguageProvider>
           <Navbar />

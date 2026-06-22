@@ -9,11 +9,7 @@ import TimelineStep from "@/components/ui/TimelineStep";
 export default function MissionProfile() {
   const { language } = useLanguage();
   
-  // 1. Get the base specs dictionary safely
-  const specsDict = dictionaries[language]?.specs as any;
-  
-  // 2. Extract profileSection with a structural fallback to prevent app crashes
-  const dict = specsDict?.profileSection || {
+  const dict = (dictionaries[language] as any)?.profileSection || {
     energyTitle: "Energy",
     energyBreakdown: {},
     summary: {},
