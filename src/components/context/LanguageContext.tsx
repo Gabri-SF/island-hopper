@@ -11,10 +11,12 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("pt");
+  // Set the default state fallback to English ("en")
+  const [language, setLanguage] = useState<Language>("en");
 
+  // Fixed toggle logic to allow clean switching between both languages
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
+    setLanguage((prev) => (prev === "en" ? "pt" : "en"));
   };
 
   return (

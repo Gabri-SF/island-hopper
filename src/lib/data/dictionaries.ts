@@ -8,7 +8,6 @@ export const dictionaries = {
       { href: "/sustainability", label: "Sustentabilidade" },
       { href: "/contacts", label: "Contactos" },
     ],
-
     home: {
       hero: {
         badge: "Em Fase de Desenvolvimento",
@@ -553,6 +552,600 @@ export const dictionaries = {
         downloadBtn: "Download do Relatório Técnico (PDF)",
       },
     },
+    navFooter: {
+      home: "Início",
+      project: "Projeto",
+      concept: "Conceito",
+      service: "Serviço",
+      sustainability: "Sustentabilidade",
+      contacts: "Contactos",
+    },
+    footer: {
+      description:
+        "Projeto académico de mobilidade aérea urbana inter-ilhas nas Ilhas Baleares.",
+      titles: {
+        navigation: "Navegação",
+        institution: "Instituição",
+        team: "Membros da Equipa",
+      },
+      institution: {
+        name: "Instituto Superior Técnico",
+        university: "Universidade de Lisboa",
+        dateGroup: "Junho 2026 · Grupo 11",
+      },
+      supervisors: {
+        Orientador: "Orientador",
+        "Co-orientador": "Co-orientador",
+      },
+      copyright: "© 2026 Island Hopper. Todos os direitos reservados.",
+    },
+    ahp: {
+      scoreLabel: "AHP score",
+      criteriaTitle: "Critérios de Avaliação (9 critérios, pesos AHP)",
+      criteriaLabels: {
+        range: "Autonomia",
+        cruiseSpeed: "Velocidade de Cruzeiro",
+        stability: "Estabilidade",
+        cabinNoise: "Ruído Interior",
+        acoustic: "Emissões Acústicas",
+        fixedCosts: "Custos Fixos",
+        maintenance: "Manutenção",
+        pollutant: "Emissões Poluentes",
+        varCosts: "Custos Variáveis",
+      },
+      architectures: {
+        "tilt-duct": {
+          name: "Tilt-Duct",
+          description:
+            "Rotores embutidos em condutas aerodinâmicas inclináveis. Combina VTOL com cruzeiro eficiente, baixo ruído e perfil compacto — ideal para operações urbanas.",
+          pros: [
+            "Perfil acústico muito reduzido — condutas atenuam o ruído dos rotores",
+            "Segurança: lâminas encapsuladas protegem pessoal em terra",
+            "Pegada compacta — compatível com vertiports urbanos",
+            "Propulsão elétrica distribuída (DEP) com 6 motores independentes",
+            "Boa eficiência aerodinâmica em cruzeiro",
+          ],
+          cons: [
+            "Massa adicional das estruturas das condutas",
+            "Gestão térmica mais complexa (motores encapsulados)",
+            "Alta complexidade de certificação (6 unidades inclináveis)",
+            "Desempenho em hover ligeiramente inferior por disc loading elevado",
+          ],
+        },
+        "tilt-rotor": {
+          name: "Tilt-Rotor",
+          description:
+            "Naceles pivotantes nas pontas da asa. Excelente desempenho em cruzeiro de longa distância, mas mecanicamente complexo e com elevado downwash em hover.",
+          pros: [
+            "Excelente alcance e velocidade de cruzeiro",
+            "Operação a alta altitude (até 25.000 ft)",
+            "Conceito comprovado (ex: AW609)",
+          ],
+          cons: [
+            "Alta complexidade mecânica dos mecanismos de inclinação",
+            "Downwash intenso em hover — requer vertiports especializados",
+            "Razão payload/peso reduzida",
+            "Manutenção mais exigente",
+          ],
+        },
+        "fixed-wing": {
+          name: "Fixed-Wing + VTOL",
+          description:
+            "Arquitetura 'Lift + Cruise' com dois sistemas de propulsão independentes. Simples e fiável, mas os rotores de sustentação tornam-se 'peso morto' em cruzeiro.",
+          pros: [
+            "Simplicidade mecânica — sem mecanismos de inclinação",
+            "Alta redundância através de DEP",
+            "Boa viabilidade de certificação",
+            "Transição baseada em software",
+          ],
+          cons: [
+            "Arrasto parasita dos rotores de sustentação em cruzeiro",
+            "Rotores verticais são peso não-utilizado durante o voo horizontal",
+            "Alcance e capacidade de payload limitados",
+            "Menos eficiente para rotas inter-ilhas de média distância",
+          ],
+        },
+        "tilt-wing": {
+          name: "Tilt-Wing",
+          description:
+            "Toda a asa (com propulsores integrados) roda em torno do eixo transversal. Elimina o downwash em hover, mas é vulnerável a rajadas laterais na transição.",
+          pros: [
+            "Eficiência aerodinâmica na transição (slipstream sobre a asa)",
+            "Eliminação do download em hover",
+            "Perfil aerodinâmico compacto em terra",
+          ],
+          cons: [
+            "Extremamente vulnerável a rajadas laterais na transição",
+            "Actuadores de alta torque e peso elevado na junta asa-fuselagem",
+            "Momento de pitch massivo durante a rotação da asa",
+            "Controlo complexo em condições de vento cruzado",
+          ],
+        },
+      },
+    },
+    specs: {
+      massTabLabel: "⚖️ Massa",
+      tableHeaders: {
+        component: "Componente",
+        mass: "Massa (kg)",
+        details: "Detalhes",
+      },
+      mtowRow: {
+        label: "MTOW Total",
+        value: "2.595",
+        details: "Peso Máximo de Descolagem",
+      },
+      categories: {
+        dimensions: "Dimensões Gerais",
+        propulsion: "Propulsão",
+        performance: "Desempenho",
+        energy: "Energia",
+        aerodynamics: "Aerodinâmica",
+      },
+      items: {
+        mtow: {
+          label: "MTOW (Peso Máx. de Descolagem)",
+          value: "2.595",
+          unit: "kg",
+        },
+        length: { label: "Comprimento da Fuselagem", value: "9,89", unit: "m" },
+        diameter: {
+          label: "Diâmetro Máximo da Fuselagem",
+          value: "2,20",
+          unit: "m",
+        },
+        wingspan: {
+          label: "Envergadura da Asa Principal",
+          value: "13",
+          unit: "m",
+        },
+        aspectRatio: { label: "Razão de Aspeto (AR)", value: "9", unit: "" },
+        wingArea: {
+          label: "Área de Referência da Asa",
+          value: "18,78",
+          unit: "m²",
+        },
+        rotors: { label: "Número de Rotores/Motores", value: "6", unit: "" },
+        radius: { label: "Raio de cada Rotor", value: "1,00", unit: "m" },
+        motorPower: {
+          label: "Potência Máxima por Motor",
+          value: "260",
+          unit: "kW",
+        },
+        totalPower: {
+          label: "Potência Total Instalada",
+          value: "1.560",
+          unit: "kW",
+        },
+        motorModel: {
+          label: "Motor Selecionado",
+          value: "EMRAX 348 MV",
+          unit: "",
+        },
+        architectureType: {
+          label: "Arquitetura",
+          value: "Tilt-Duct Híbrida",
+          unit: "",
+        },
+        cruiseSpeed: {
+          label: "Velocidade de Cruzeiro",
+          value: "85",
+          unit: "m/s (306 km/h)",
+        },
+        stallSpeed: { label: "Velocidade de Stall", value: "40", unit: "m/s" },
+        cruiseAltitude: {
+          label: "Altitude de Cruzeiro",
+          value: "2.286",
+          unit: "m (7.500 ft)",
+        },
+        range: {
+          label: "Autonomia (Rota Principal)",
+          value: "140",
+          unit: "km",
+        },
+        flightDuration: {
+          label: "Duração do Voo",
+          value: "≈34",
+          unit: "minutos",
+        },
+        capacity: {
+          label: "Capacidade",
+          value: "1 piloto + 6 passageiros",
+          unit: "",
+        },
+        totalEnergy: {
+          label: "Energia Total da Missão",
+          value: "71,66",
+          unit: "kWh",
+        },
+        vtolEnergy: {
+          label: "Energia VTOL + Hover",
+          value: "20,20",
+          unit: "kWh",
+        },
+        climbEnergy: {
+          label: "Energia de Subida",
+          value: "21,60",
+          unit: "kWh",
+        },
+        cruiseEnergy: {
+          label: "Energia de Cruzeiro",
+          value: "32,30",
+          unit: "kWh",
+        },
+        hybridMass: {
+          label: "Massa do Sistema de Energia Híbrido",
+          value: "197,73",
+          unit: "kg",
+        },
+        dcBusVoltage: {
+          label: "Tensão do Barramento DC",
+          value: "800",
+          unit: "V",
+        },
+        wingAirfoil: {
+          label: "Perfil Aerodinâmico da Asa",
+          value: "NACA 4412",
+          unit: "",
+        },
+        canardAirfoil: {
+          label: "Perfil do Canard e Cauda",
+          value: "NACA 0015",
+          unit: "",
+        },
+        taperRatio: {
+          label: "Razão de Afilamento (λ)",
+          value: "0,40",
+          unit: "",
+        },
+        sweepAngle: {
+          label: "Ângulo de Enflechamento (LE)",
+          value: "2,73°",
+          unit: "",
+        },
+        staticMargin: {
+          label: "Margem Estática (SM)",
+          value: "11,2%",
+          unit: "",
+        },
+        cmAlpha: { label: "Derivada CMα", value: "-0,75", unit: "/°" },
+      },
+      massBreakdown: {
+        passengers: {
+          name: "Passageiros & Piloto",
+          mass: "700,0",
+          details: "7 × 100 kg (incl. bagagem)",
+        },
+        fuselage: {
+          name: "Fuselagem",
+          mass: "612,75",
+          details: "300,45 kg (fibra) + 312,3 kg (metal estrutural)",
+        },
+        mainWing: {
+          name: "Asa Principal",
+          mass: "273,0",
+          details: "13 kg/m² × 21 m²",
+        },
+        ducts: {
+          name: "Ductos (6 unidades)",
+          mass: "300,0",
+          details: "20 kg hélice + 15 kg ducto + 15 kg inclinação",
+        },
+        motors: {
+          name: "Motores Elétricos (6)",
+          mass: "249,0",
+          details: "6 × 41,5 kg (EMRAX 348)",
+        },
+        fuelCell: {
+          name: "Célula de Combustível",
+          mass: "139,36",
+          details: "PEMFC 200 kW + armazenamento H₂",
+        },
+        canard: {
+          name: "Canard",
+          mass: "85,0",
+          details: "Superfície dianteira",
+        },
+        battery: {
+          name: "Bateria Li-S",
+          mass: "58,37",
+          details: "26,26 kWh a 0,45 kWh/kg",
+        },
+        avionics: {
+          name: "Sistemas & Aviónicos",
+          mass: "70,0",
+          details: "Controlo e navegação",
+        },
+        tail: {
+          name: "Cauda (T-tail)",
+          mass: "70,0",
+          details: "Estabilizador e leme",
+        },
+        cabling: {
+          name: "Cablagem HV",
+          mass: "37,7",
+          details: "Rede de 800 V DC — 60 m de cabo",
+        },
+      },
+      phases: {
+        p1: { label: "Descolagem Vertical", type: "Subida Vertical" },
+        p2: { label: "Hover (Descolagem)", type: "Hover" },
+        p3: { label: "Subida", type: "Subida (5°)" },
+        p4: { label: "Cruzeiro", type: "Cruzeiro" },
+        p5: { label: "Descida", type: "Descida (−5°)" },
+        p6: { label: "Hover (Aterragem)", type: "Hover" },
+        p7: { label: "Aterragem Vertical", type: "Descida Vertical" },
+      },
+    },
+    profileSection: {
+      energyTitle: "Energia por Fase de Missão",
+      energyBreakdown: {
+        vtol: { label: "VTOL + Hover", value: "20,20 kWh" },
+        climb: { label: "Subida", value: "21,60 kWh" },
+        cruise: { label: "Cruzeiro", value: "32,30 kWh" },
+        descent: {
+          label: "Descida + Aterragem",
+          value: "~0 kWh (regenerativo)",
+        },
+      },
+      summary: {
+        totalLabel: "Total da Missão",
+        totalValue: "71,66 kWh",
+        durationLabel: "Duração total",
+        durationValue: "≈34 min",
+        distanceLabel: "Distância total",
+        distanceValue: "140 km",
+      },
+      phases: {
+        p1: { label: "Descolagem Vertical", type: "Subida Vertical" },
+        p2: { label: "Hover (Descolagem)", type: "Hover" },
+        p3: { label: "Subida", type: "Subida (5°)" },
+        p4: { label: "Cruzeiro", type: "Cruzeiro" },
+        p5: { label: "Descida", type: "Descida (−5°)" },
+        p6: { label: "Hover (Aterragem)", type: "Hover" },
+        p7: { label: "Aterragem Vertical", type: "Descida Vertical" },
+      },
+    },
+    powertrainDiagram: {
+      proa: "▲  PROA",
+      cauda: "▼  CAUDA",
+      canard: "CANARD",
+      asaPrincipal: "ASA PRINCIPAL",
+      ttail: "T-TAIL",
+      bordoEsquerdo: "◄  BORDO ESQUERDO",
+      bordoDireito: "BORDO DIREITO  ►",
+      envergadura: "↔  Envergadura: 13 m",
+      fuselagem: "Fuselagem: 9,89 m",
+      caption:
+        'Vista superior esquemática — powertrain do Island Hopper "Mega-Duct" (não à escala) · Cap. 7 do Relatório',
+      legendTitle: "LEGENDA",
+      legendLabel: "Canard · Asa · T-tail",
+      labels: {
+        avionica: "AVIÓNICA",
+        bmsFcs: "BMS · FCS",
+        controloVoo: "Controlo de Voo",
+        bateria: "Bat.",
+        lis: "Li-S",
+        massaBat: "58 kg",
+        tanque: "Tanque",
+        massaTanque: "39 kg",
+        gestaoTermica: "Gestão Térmica",
+        pemfc: "PEMFC H₂",
+        metricaPemfc: "200 kW · 100 kg",
+        barramento: "Barramento DC · 800 V",
+        conv: "Conv.",
+        hvx2: "HV ×2",
+        dcdc: "DC/DC",
+        computador: "Computador",
+        fmsGnss: "FMS · GNSS",
+      },
+      items: [
+        { color: "#22c55e", label: "Aviónica / BMS / FCS" },
+        { color: "#3b82f6", label: "Bateria Li-S (58 kg)" },
+        { color: "#0ea5e9", label: "Tanque H₂ (39 kg)" },
+        { color: "#0d9488", label: "PEMFC 200 kW" },
+        { color: "#f97316", label: "Bus DC 800V / Conversores" },
+        { color: "#a855f7", label: "Computador de Bordo" },
+        { color: "#10b981", label: "Motor EMRAX 348 MV (×6)" },
+        { color: "#f59e0b", label: "Fiação Alta Tensão" },
+      ],
+    },
+    propulsionSystem: {
+      comparisonTitle: "Comparação: Híbrido vs. Totalmente Elétrico",
+      selectedLabel: "Sistema Híbrido (selecionado)",
+      hybridValue: "197,73 kg",
+      hybridSub: "Li-S (58,37) + PEMFC (100) + H₂ (39,36)",
+      electricLabel: "Totalmente Elétrico",
+      electricValue: "329,89 kg",
+      electricSub: "Apenas baterias — 67% mais pesado",
+      savingsText:
+        "Poupança de <strong>132,16 kg</strong> com a arquitetura híbrida — equivale a mais de um passageiro adicional de payload.",
+      cards: [
+        {
+          title: "Bateria Li-S",
+          sub: "VTOL + Transientes",
+          metrics: [
+            { label: "Massa", value: "58,37 kg" },
+            { label: "Energia", value: "26,26 kWh" },
+            { label: "Densidade", value: "0,45 kWh/kg" },
+            { label: "Missões", value: "Descolagem + Hover" },
+          ],
+        },
+        {
+          title: "Célula de Combustível (PEMFC)",
+          sub: "Cruzeiro + Subida",
+          metrics: [
+            { label: "Potência", value: "200 kW" },
+            { label: "Massa PEMFC", value: "100 kg" },
+            { label: "Armazenamento H₂", value: "39,36 kg" },
+            { label: "Missões", value: "Subida + Cruzeiro" },
+          ],
+        },
+        {
+          title: "6× Motores EMRAX 348",
+          sub: "Propulsão Distribuída (DEP)",
+          metrics: [
+            { label: "Potência/Motor", value: "260 kW" },
+            { label: "Potência Total", value: "1.560 kW" },
+            { label: "Massa/Motor", value: "41,5 kg" },
+            { label: "Tensão DC", value: "800 V" },
+          ],
+        },
+      ],
+    },
+    reportDownload: {
+      title: "Relatório Técnico Completo",
+      meta: "96 páginas · PDF · IST 2026 · Grupo 11",
+      description:
+        "Inclui dimensionamento aerodinâmico, propulsão híbrida, análise de estabilidade, avaliação de ciclo de vida e estimativas de custos operacionais.",
+      buttonText: "Download PDF",
+    },
+    teamGrid: {
+      membersTitle: "Membros — Grupo 11",
+      supervisorsTitle: "Orientadores",
+      numberPrefix: "nº",
+      titles: {
+        Supervisor: "Orientador",
+        "Co-Supervisor": "Coorientador",
+      },
+    },
+    marketComparison: {
+      headers: {
+        mode: "Modo",
+        time: "Tempo de Viagem",
+        cost: "Custo / Pax",
+        emissions: "Emissões CO₂",
+      },
+      translations: {
+        // Optional data-value mappings override if your data strings are in Portuguese
+        "Zero (Propulsão H₂/Elétrica)": "Zero (Propulsão H₂/Elétrica)",
+        "Direto de ponto a ponto": "Direto de ponto a ponto",
+      },
+    },
+    routeMap: {
+      selectedRouteLabel: "Rota Selecionada",
+      vtolLabel: "Island Hopper",
+      vtolSub: "Voo direto VTOL",
+      ferryLabel: "Ferry Convencional",
+      ferrySub: "Média estimada",
+      savingsPrefix: "O Island Hopper poupa aproximadamente",
+      savingsSuffix: "de viagem nesta ligação inter-ilhas.",
+      hourUnit: "h",
+      minuteUnit: "min",
+      minutesOnlyUnit: "minutos",
+      translations: {
+        "Maiorca a Menorca": "Maiorca a Menorca",
+        "Ibiza a Maiorca": "Ibiza a Maiorca",
+        "Ibiza a Formentera": "Ibiza a Formentera",
+      },
+    },
+    emissionsCalculator: {
+      comparisonTitle: "Comparação com Modos Convencionais (por voo, 7 pax)",
+      perPassengerLabel: "Por passageiro",
+      perFlightUnit: "kg CO₂-eq / voo",
+      perPaxSubtitle: "kg/pax · Zero emissões diretas",
+      airplaneLabel: "✈ Avião Convencional",
+      ferryLabel: "⛴ Ferry Rápido",
+      scenarios: {
+        green: {
+          label: "Hidrogénio Verde",
+          total: 14.974,
+          note: "Hidrogénio produzido por electrólise com energia renovável (solar/eólica Baleares).",
+          badge: "Cenário A — Recomendado",
+          breakdown: [
+            {
+              label: "Produção H₂ (electrólise renovável)",
+              value: 6.32,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Produção de eletricidade (bateria)",
+              value: 5.89,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Fabrico e manutenção (amortizado)",
+              value: 2.76,
+              unit: "kg CO₂-eq",
+            },
+          ],
+        },
+        grey: {
+          label: "Hidrogénio Cinzento",
+          total: 30.505,
+          note: "Hidrogénio obtido por reforma de gás natural — tecnologia atual predominante.",
+          badge: "Cenário B — Transição",
+          breakdown: [
+            {
+              label: "Produção H₂ (reforma de gás natural)",
+              value: 19.65,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Produção de eletricidade (bateria)",
+              value: 7.84,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Fabrico e manutenção (amortizado)",
+              value: 3.02,
+              unit: "kg CO₂-eq",
+            },
+          ],
+        },
+      },
+      reference: {
+        airplane: { value: "18–20", perFlight: "~126–140" },
+        ferry: { value: "2–4", perFlight: "~14–28" },
+      },
+    },
+    noiseProfile: {
+      advantageTitle: "Vantagem dos Ducted Fans",
+      noteText:
+        "Nota: Valores de SPL aproximados baseados em literatura técnica e análise de referências equivalentes (Cap. 10 do Relatório Técnico). Medições em condições padronizadas ISO 3745.",
+      cards: {
+        reduction: {
+          value: "−8 a −10 dB",
+          desc: "Redução de ruído proporcionada pelos ducted fans em relação a rotores abertos equivalentes. As condutas aerodinâmicas atuam como barreiras acústicas naturais.",
+        },
+        loudness: {
+          value: "3× menos",
+          desc: "Em termos de percepção humana de loudness (escala A-weighted), o Island Hopper é percepcionado como significativamente mais silencioso que um helicóptero urbano.",
+        },
+      },
+      noiseData: [
+        {
+          label: "Avião Comercial (descolagem)",
+          spl: 140,
+          note: "Perto da pista",
+        },
+        {
+          label: "Helicóptero (100 m)",
+          spl: 100,
+          note: "Operação urbana típica",
+        },
+        {
+          label: "Island Hopper — VTOL (100 m)",
+          spl: 85,
+          note: "Pico durante descolagem vertical",
+          isVTOL: true,
+        },
+        {
+          label: "Tráfego automóvel intenso",
+          spl: 80,
+          note: "Referência urbana",
+        },
+        {
+          label: "Island Hopper — Cruzeiro (300 m)",
+          spl: 62,
+          note: "Em altitude de cruzeiro",
+          isVTOL: true,
+          isCruise: true,
+        },
+        { label: "Conversa normal", spl: 60, note: "Referência quotidiana" },
+        { label: "Residencial tranquilo", spl: 40, note: "Referência noturna" },
+      ],
+    },
   },
   en: {
     nav: [
@@ -563,7 +1156,6 @@ export const dictionaries = {
       { href: "/sustainability", label: "Sustainability" },
       { href: "/contacts", label: "Contacts" },
     ],
-
     home: {
       hero: {
         badge: "In Development Phase",
@@ -1104,6 +1696,602 @@ export const dictionaries = {
         address: "Av. Rovisco Pais, 1 · 1049-001 Lisbon",
         downloadBtn: "Download Technical Report (PDF)",
       },
+    },
+    navFooter: {
+      home: "Home",
+      project: "Project",
+      concept: "Concept",
+      service: "Service",
+      sustainability: "Sustainability",
+      contacts: "Contacts",
+    },
+    footer: {
+      description:
+        "Academic project for inter-island urban air mobility in the Balearic Islands.",
+      titles: {
+        navigation: "Navigation",
+        institution: "Institution",
+        team: "Team Members",
+      },
+      institution: {
+        name: "Instituto Superior Técnico",
+        university: "University of Lisbon",
+        dateGroup: "June 2026 · Group 11",
+      },
+      supervisors: {
+        Orientador: "Advisor",
+        "Co-orientador": "Co-advisor",
+      },
+      copyright: "© 2026 Island Hopper. All rights reserved.",
+    },
+    ahp: {
+      scoreLabel: "AHP score",
+      criteriaTitle: "Evaluation Criteria (9 criteria, AHP weights)",
+      criteriaLabels: {
+        range: "Range",
+        cruiseSpeed: "Cruise Speed",
+        stability: "Stability",
+        cabinNoise: "Cabin Noise",
+        acoustic: "Acoustic Emissions",
+        fixedCosts: "Fixed Costs",
+        maintenance: "Maintenance",
+        pollutant: "Pollutant Emissions",
+        varCosts: "Variable Costs",
+      },
+      architectures: {
+        "tilt-duct": {
+          name: "Tilt-Duct",
+          description:
+            "Rotors embedded in tilting aerodynamic ducts. Combines VTOL with efficient cruise, low noise, and a compact profile — ideal for urban operations.",
+          pros: [
+            "Significantly reduced acoustic profile — ducts mitigate rotor noise",
+            "Safety: enclosed blades protect ground personnel",
+            "Compact footprint — fully compatible with urban vertiports",
+            "Distributed Electric Propulsion (DEP) featuring 6 independent motors",
+            "Excellent aerodynamic efficiency during cruise flight",
+          ],
+          cons: [
+            "Additional weight structural overhead from duct assemblies",
+            "More complex thermal management due to enclosed motor pods",
+            "High certification complexity with 6 tilting propulsor assemblies",
+            "Slightly lower hovering efficiency caused by higher disc loading",
+          ],
+        },
+        "tilt-rotor": {
+          name: "Tilt-Rotor",
+          description:
+            "Tilting nacelles located at the wingtips. Delivers outstanding performance for long-range cruise routes, though mechanically complex with heavy hover downwash.",
+          pros: [
+            "Excellent range capability and cruise speeds",
+            "High-altitude operational threshold (up to 25,000 ft)",
+            "Proven architecture benchmark configuration (e.g., AW609)",
+          ],
+          cons: [
+            "High mechanical complexity inside tilting actuation linkages",
+            "Intense downwash velocity profile in hover requiring specialized vertiports",
+            "Reduced payload-to-weight fraction ratios",
+            "More demanding maintenance requirements",
+          ],
+        },
+        "fixed-wing": {
+          name: "Fixed-Wing + VTOL",
+          description:
+            "A standard 'Lift + Cruise' system layout featuring completely independent propulsion sets. Simple and reliable, though lifting rotors act as dead weight during cruise.",
+          pros: [
+            "Mechanical simplicity — eliminates complex mechanical tilting mechanisms",
+            "High fault redundancy architecture through DEP design",
+            "Straightforward regulatory certification framework roadmap",
+            "Software-governed transit flight phase regimes",
+          ],
+          cons: [
+            "High parasitic drag penalties from exposure of static lift rotors in cruise",
+            "Vertical lift engines are unutilized dead weight during forward wing-borne flight",
+            "Constrained maximum range limits and total payload capacity",
+            "Lower systems efficiency across medium-distance inter-island sectors",
+          ],
+        },
+        "tilt-wing": {
+          name: "Tilt-Wing",
+          description:
+            "The entire wing platform (housing integrated propulsors) rotates around the lateral axis. Eliminates hover wing download, but introduces severe crosswind transition vulnerability.",
+          pros: [
+            "High aerodynamic transitions efficiency (accelerated slipstream over wing chord)",
+            "Complete elimination of hover downwash structural download penalties",
+            "Highly compact structural ground footprint storage profile",
+          ],
+          cons: [
+            "Extremely vulnerable to sudden lateral crosswind gusts during wing rotation phases",
+            "High-torque, high-weight actuator overhead demands at the wing-to-fuselage interface joint",
+            "Massive pitching moment fluctuations during dynamic wing re-orientation sweeps",
+            "Complex aerodynamic vehicle control laws under crosswind approach vectors",
+          ],
+        },
+      },
+    },
+    specs: {
+      massTabLabel: "⚖️ Mass Breakdown",
+      tableHeaders: {
+        component: "Component",
+        mass: "Mass (kg)",
+        details: "Design Details",
+      },
+      mtowRow: {
+        label: "Total MTOW",
+        value: "2,595",
+        details: "Maximum Takeoff Weight",
+      },
+      categories: {
+        dimensions: "General Dimensions",
+        propulsion: "Propulsion Architecture",
+        performance: "Performance Flight Envelope",
+        energy: "Energy Systems",
+        aerodynamics: "Aerodynamics & Stability",
+      },
+      items: {
+        mtow: {
+          label: "MTOW (Max. Takeoff Weight)",
+          value: "2,595",
+          unit: "kg",
+        },
+        length: { label: "Fuselage Length", value: "9.89", unit: "m" },
+        diameter: { label: "Max Fuselage Diameter", value: "2.20", unit: "m" },
+        wingspan: { label: "Main Wingspan", value: "13", unit: "m" },
+        aspectRatio: { label: "Aspect Ratio (AR)", value: "9", unit: "" },
+        wingArea: { label: "Wing Reference Area", value: "18.78", unit: "m²" },
+        rotors: { label: "Number of Rotors/Motors", value: "6", unit: "" },
+        radius: { label: "Rotor Radius", value: "1.00", unit: "m" },
+        motorPower: { label: "Max Power per Motor", value: "260", unit: "kW" },
+        totalPower: {
+          label: "Total Installed Power",
+          value: "1,560",
+          unit: "kW",
+        },
+        motorModel: {
+          label: "Selected Motor Spec",
+          value: "EMRAX 348 MV",
+          unit: "",
+        },
+        architectureType: {
+          label: "Configuration Type",
+          value: "Hybrid Tilt-Duct",
+          unit: "",
+        },
+        cruiseSpeed: {
+          label: "Cruise Velocity",
+          value: "85",
+          unit: "m/s (306 km/h)",
+        },
+        stallSpeed: { label: "Stall Velocity", value: "40", unit: "m/s" },
+        cruiseAltitude: {
+          label: "Cruise Altitude Ceiling",
+          value: "2,286",
+          unit: "m (7,500 ft)",
+        },
+        range: {
+          label: "Range (Primary Mission Route)",
+          value: "140",
+          unit: "km",
+        },
+        flightDuration: {
+          label: "Flight Sector Duration",
+          value: "≈34",
+          unit: "minutes",
+        },
+        capacity: {
+          label: "Payload Capacity",
+          value: "1 pilot + 6 passengers",
+          unit: "",
+        },
+        totalEnergy: {
+          label: "Total Mission Energy Demand",
+          value: "71.66",
+          unit: "kWh",
+        },
+        vtolEnergy: {
+          label: "VTOL + Hover Segment Energy",
+          value: "20.20",
+          unit: "kWh",
+        },
+        climbEnergy: {
+          label: "Climb Segment Energy Allocation",
+          value: "21.60",
+          unit: "kWh",
+        },
+        cruiseEnergy: {
+          label: "Cruise Phase Energy Consumption",
+          value: "32.30",
+          unit: "kWh",
+        },
+        hybridMass: {
+          label: "Hybrid Powertrain System Mass",
+          value: "197.73",
+          unit: "kg",
+        },
+        dcBusVoltage: {
+          label: "DC Bus Operating Voltage",
+          value: "800",
+          unit: "V",
+        },
+        wingAirfoil: {
+          label: "Main Wing Airfoil Profile",
+          value: "NACA 4412",
+          unit: "",
+        },
+        canardAirfoil: {
+          label: "Canard & Tail Airfoil Section",
+          value: "NACA 0015",
+          unit: "",
+        },
+        taperRatio: { label: "Taper Ratio (λ)", value: "0.40", unit: "" },
+        sweepAngle: {
+          label: "Leading-Edge Sweep Angle",
+          value: "2.73°",
+          unit: "",
+        },
+        staticMargin: {
+          label: "Aircraft Static Margin (SM)",
+          value: "11.2%",
+          unit: "",
+        },
+        cmAlpha: {
+          label: "Pitching Moment Derivative (CMα)",
+          value: "-0.75",
+          unit: "/°",
+        },
+      },
+      massBreakdown: {
+        passengers: {
+          name: "Passengers & Pilot",
+          mass: "700.0",
+          details: "7 × 100 kg (incl. baggage limits)",
+        },
+        fuselage: {
+          name: "Fuselage Structure",
+          mass: "612.75",
+          details:
+            "300.45 kg (carbon composite) + 312.3 kg (structural metal frame)",
+        },
+        mainWing: {
+          name: "Main Wing Assembly",
+          mass: "273.0",
+          details: "13 kg/m² wing loading × 21 m² structural envelope",
+        },
+        ducts: {
+          name: "Duct Cells (6 assemblies)",
+          mass: "300.0",
+          details:
+            "20 kg rotor assembly + 15 kg structural duct ring + 15 kg dynamic tilt actuator",
+        },
+        motors: {
+          name: "Electric Motor Drives (6)",
+          mass: "249.0",
+          details: "6 × 41.5 kg units (EMRAX 348 powerheads)",
+        },
+        fuelCell: {
+          name: "Hydrogen Fuel Cell System",
+          mass: "139.36",
+          details: "200 kW PEMFC stack + gaseous H₂ storage configuration",
+        },
+        canard: {
+          name: "Canard Surface",
+          mass: "85.0",
+          details: "Forward lifting aerodynamic plane assembly",
+        },
+        battery: {
+          name: "Li-S Energy Storage Battery",
+          mass: "58.37",
+          details: "26.26 kWh core buffer rated @ 0.45 kWh/kg grid",
+        },
+        avionics: {
+          name: "Core Systems & Avionics",
+          mass: "70.0",
+          details:
+            "Fly-by-wire flight control arrays and primary navigation arrays",
+        },
+        tail: {
+          name: "Empennage Group (T-tail)",
+          mass: "70.0",
+          details:
+            "Vertical stabilizer structural box and rudder surface control linkage",
+        },
+        cabling: {
+          name: "High-Voltage DC Cabling",
+          mass: "37.7",
+          details:
+            "800 V DC distribution bus harness — 60 m conductor path run",
+        },
+      },
+      phases: {
+        p1: { label: "Vertical Takeoff", type: "Vertical Climb" },
+        p2: { label: "Hover (Takeoff Phase)", type: "Stationary Hover" },
+        p3: { label: "Transition Climb", type: "Vector Climb (5°)" },
+        p4: { label: "Main Cruise Phase", type: "Aerodynamic Cruise" },
+        p5: { label: "Transition Descent", type: "Vector Descent (−5°)" },
+        p6: { label: "Hover (Approach Phase)", type: "Stationary Hover" },
+        p7: { label: "Vertical Landing", type: "Vertical Descent" },
+      },
+    },
+    profileSection: {
+      energyTitle: "Energy Consumption per Mission Phase",
+      energyBreakdown: {
+        vtol: { label: "VTOL + Hover Segments", value: "20.20 kWh" },
+        climb: { label: "Climb Phase", value: "21.60 kWh" },
+        cruise: { label: "Cruise Profile", value: "32.30 kWh" },
+        descent: { label: "Descent & Landing", value: "~0 kWh (regenerative)" },
+      },
+      summary: {
+        totalLabel: "Total Mission Profile Allocation",
+        totalValue: "71.66 kWh",
+        durationLabel: "Total block duration",
+        durationValue: "≈34 min",
+        distanceLabel: "Total mission distance",
+        distanceValue: "140 km",
+      },
+      phases: {
+        p1: { label: "Vertical Takeoff", type: "Vertical Climb" },
+        p2: { label: "Hover (Takeoff)", type: "Stationary Hover" },
+        p3: { label: "Climb Transition", type: "Climb (5° Profile)" },
+        p4: { label: "Aerodynamic Cruise", type: "Main Cruise Phase" },
+        p5: { label: "Descent Transition", type: "Descent (−5° Profile)" },
+        p6: { label: "Hover (Approach)", type: "Stationary Hover" },
+        p7: { label: "Vertical Landing", type: "Vertical Descent" },
+      },
+    },
+    powertrainDiagram: {
+      proa: "▲  FORE (NOSE)",
+      cauda: "▼  AFT (TAIL)",
+      canard: "FORWARD CANARD",
+      asaPrincipal: "MAIN WING BOX",
+      ttail: "T-TAIL ASSEMBLY",
+      bordoEsquerdo: "◄  PORT SIDE (LEFT)",
+      bordoDireito: "STARBOARD SIDE (RIGHT)  ►",
+      envergadura: "↔  Wingspan: 13 m",
+      fuselagem: "Fuselage Length: 9.89 m",
+      caption:
+        'Top schematic layout view — Island Hopper "Mega-Duct" hybrid powertrain architecture (not to scale) · Ch. 7 Report',
+      legendTitle: "MAP KEY",
+      legendLabel: "Canard · Wing · T-tail",
+      labels: {
+        avionica: "AVIONICS BAY",
+        bmsFcs: "BMS · FCS GRID",
+        controloVoo: "Primary Flight Ctrl",
+        bateria: "Batt.",
+        lis: "Li-S Array",
+        massaBat: "58 kg pack",
+        tanque: "H₂ Storage",
+        massaTanque: "39 kg cell",
+        gestaoTermica: "Thermal Exhaust Management",
+        pemfc: "H₂ PEMFC Core",
+        metricaPemfc: "200 kW · 100 kg",
+        barramento: "800V High-Voltage DC Bus",
+        conv: "Conv.",
+        hvx2: "HV ×2 Split",
+        dcdc: "DC/DC Buck",
+        computador: "Main Computer",
+        fmsGnss: "FMS · GNSS Core",
+      },
+      items: [
+        { color: "#22c55e", label: "Avionics System / BMS / FCS" },
+        { color: "#3b82f6", label: "Li-S Battery Buffer (58 kg)" },
+        { color: "#0ea5e9", label: "Gaseous H₂ Tank (39 kg)" },
+        { color: "#0d9488", label: "200 kW PEMFC Stack Fuel Cell" },
+        { color: "#f97316", label: "800V DC Bus / HV Converters" },
+        { color: "#a855f7", label: "Integrated Flight Computer" },
+        { color: "#10b981", label: "EMRAX 348 MV Outrunners (×6)" },
+        { color: "#f59e0b", label: "High-Voltage Harness Paths" },
+      ],
+    },
+    propulsionSystem: {
+      comparisonTitle: "Weight Comparison: Hybrid vs. All-Electric Alternative",
+      selectedLabel: "Hybrid Powertrain (Selected Design)",
+      hybridValue: "197.73 kg",
+      hybridSub: "Li-S Buffer (58.37) + PEMFC Stack (100) + H₂ Fuel (39.36)",
+      electricLabel: "Pure Battery Electric",
+      electricValue: "329.89 kg",
+      electricSub: "Battery-only configuration — 67% higher weight envelope",
+      savingsText:
+        "Weight reduction of <strong>132.16 kg</strong> achieved via hybrid architecture — effectively enabling one additional passenger payload sector capacity.",
+      cards: [
+        {
+          title: "Li-S Battery Pack",
+          sub: "VTOL Phases + Power Transients",
+          metrics: [
+            { label: "Mass", value: "58.37 kg" },
+            { label: "Energy Capacity", value: "26.26 kWh" },
+            { label: "Specific Density", value: "0.45 kWh/kg" },
+            { label: "Mission Stages", value: "Takeoff + Vertical Hover" },
+          ],
+        },
+        {
+          title: "Hydrogen Fuel Cell (PEMFC)",
+          sub: "Steady Cruise + Climb Vectors",
+          metrics: [
+            { label: "Power Output", value: "200 kW" },
+            { label: "PEMFC Stack Mass", value: "100 kg" },
+            { label: "H₂ Gas Storage", value: "39.36 kg" },
+            { label: "Mission Stages", value: "Climb Segment + Cruise" },
+          ],
+        },
+        {
+          title: "6× EMRAX 348 Systems",
+          sub: "Distributed Electric Propulsion (DEP)",
+          metrics: [
+            { label: "Power per Unit", value: "260 kW" },
+            { label: "Total Power Rating", value: "1,560 kW" },
+            { label: "Mass per Unit", value: "41.5 kg" },
+            { label: "DC Link Voltage", value: "800 V" },
+          ],
+        },
+      ],
+    },
+    reportDownload: {
+      title: "Complete Technical Report",
+      meta: "96 pages · PDF · IST 2026 · Group 11",
+      description:
+        "Includes aerodynamic sizing parameters, hybrid propulsion system optimization, stability analysis calculations, life cycle assessment, and comprehensive operational cost estimates.",
+      buttonText: "Download PDF",
+    },
+    teamGrid: {
+      membersTitle: "Team Members — Group 11",
+      supervisorsTitle: "Academic Advisors",
+      numberPrefix: "No.",
+      titles: {
+        Supervisor: "Advisor",
+        "Co-Supervisor": "Co-Advisor",
+      },
+    },
+    marketComparison: {
+      headers: {
+        mode: "Transport Mode",
+        time: "Travel Duration",
+        cost: "Cost / Pax",
+        emissions: "CO₂ Emissions",
+      },
+      translations: {
+        // Maps standard data strings automatically to English equivalents
+        Ferry: "Maritime Ferry",
+        "Avião Comercial": "Commercial Airliner",
+        "Carro (via Ferry)": "Car (via Ferry Route)",
+        "Island Hopper eVTOL": "Island Hopper eVTOL",
+        "Direto de ponto a ponto": "Direct point-to-point network",
+        "Sujeito a horários/filas": "Subject to timetables & boarding lines",
+        "Inclui tempo de aeroporto":
+          "Includes airport security & check-in overhead",
+        "Zero (Propulsão H₂/Elétrica)": "Zero (H₂/Electric Powertrain)",
+      },
+    },
+    routeMap: {
+      selectedRouteLabel: "Selected Flight Path",
+      vtolLabel: "Island Hopper",
+      vtolSub: "Direct VTOL Flight Cruise",
+      ferryLabel: "Conventional Ferry",
+      ferrySub: "Estimated average travel transit",
+      savingsPrefix: "The Island Hopper saves approximately",
+      savingsSuffix: "of travel transit time across this regional island link.",
+      hourUnit: "h",
+      minuteUnit: "m",
+      minutesOnlyUnit: "minutes",
+      translations: {
+        "Maiorca a Menorca": "Mallorca to Menorca",
+        "Ibiza a Maiorca": "Ibiza to Mallorca",
+        "Ibiza a Formentera": "Ibiza to Formentera",
+      },
+    },
+    emissionsCalculator: {
+      comparisonTitle:
+        "Benchmark Comparison with Conventional Transit (Per Flight, 7 Pax)",
+      perPassengerLabel: "Per Passenger",
+      perFlightUnit: "kg CO₂-eq / flight",
+      perPaxSubtitle: "kg/pax · Zero direct tailpipe emissions",
+      airplaneLabel: "✈ Regional Commercial Jet",
+      ferryLabel: "⛴ High-Speed Marine Ferry",
+      scenarios: {
+        green: {
+          label: "Green Hydrogen",
+          total: 14.974,
+          note: "Hydrogen produced via clean water electrolysis powered by dedicated regional solar/wind arrays in the Balearics.",
+          badge: "Scenario A — Recommended Strategy",
+          breakdown: [
+            {
+              label: "H₂ Production (Renewable Electrolysis)",
+              value: 6.32,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Electricity Generation (Battery Buffer)",
+              value: 5.89,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Airframe Manufacturing & Maintenance (Amortized)",
+              value: 2.76,
+              unit: "kg CO₂-eq",
+            },
+          ],
+        },
+        grey: {
+          label: "Grey Hydrogen",
+          total: 30.505,
+          note: "Hydrogen extracted via Steam Methane Reforming (SMR) of natural gas — representing standard current supply chains.",
+          badge: "Scenario B — Transitional Matrix",
+          breakdown: [
+            {
+              label: "H₂ Production (Steam Methane Reforming)",
+              value: 19.65,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Electricity Generation (Battery Buffer)",
+              value: 7.84,
+              unit: "kg CO₂-eq",
+            },
+            {
+              label: "Airframe Manufacturing & Maintenance (Amortized)",
+              value: 3.02,
+              unit: "kg CO₂-eq",
+            },
+          ],
+        },
+      },
+      reference: {
+        airplane: { value: "18–20", perFlight: "~126–140" },
+        ferry: { value: "2–4", perFlight: "~14–28" },
+      },
+    },
+    noiseProfile: {
+      advantageTitle: "Acoustic Advantage of Ducted Fan Assemblies",
+      noteText:
+        "Note: Approximate Sound Pressure Level (SPL) matrix configured from technical literature baselines and equivalent reference frameworks (Tech Report Ch. 10). Conditions benchmarked under ISO 3745 testing standards.",
+      cards: {
+        reduction: {
+          value: "−8 to −10 dB",
+          desc: "Noise mitigation achieved by integrating custom ducted fan shrouding over open blade configurations. The structural cowlings function as built-in acoustic barriers.",
+        },
+        loudness: {
+          value: "3× quieter",
+          desc: "Based on human loudness perception frameworks (A-weighted decibel arrays), the Island Hopper is registered as distinctly less intrusive than a conventional urban helicopter footprint.",
+        },
+      },
+      noiseData: [
+        {
+          label: "Commercial Airliner (Takeoff)",
+          spl: 140,
+          note: "Proximate to runway threshold",
+        },
+        {
+          label: "Conventional Helicopter (100 m)",
+          spl: 100,
+          note: "Standard low-altitude urban mission envelope",
+        },
+        {
+          label: "Island Hopper — VTOL (100 m)",
+          spl: 85,
+          note: "Transient power spike during vertical lift stage",
+          isVTOL: true,
+        },
+        {
+          label: "Dense Vehicle Traffic",
+          spl: 80,
+          note: "Metropolitan urban environment benchmark",
+        },
+        {
+          label: "Island Hopper — Cruise (300 m)",
+          spl: 62,
+          note: "Steady-state cruise altitude footprint",
+          isVTOL: true,
+          isCruise: true,
+        },
+        {
+          label: "Normal Conversation",
+          spl: 60,
+          note: "Everyday ambient benchmark",
+        },
+        {
+          label: "Quiet Residential Area",
+          spl: 40,
+          note: "Nighttime ambient benchmark",
+        },
+      ],
     },
   },
 };

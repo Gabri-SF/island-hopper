@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Island Hopper — Mobilidade Aérea Urbana nas Baleares",
+  title: "Island Hopper — Urban Air Mobility eVTOL",
   description:
     "Projeto académico de eVTOL inter-ilhas com arquitetura Tilt-Duct. IST 2026, Grupo 11.",
 };
