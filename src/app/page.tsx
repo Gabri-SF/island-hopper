@@ -1,68 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/components/context/LanguageContext"; // Adjust path if needed
+import { dictionaries } from "../lib/data/dictionaries"; // Adjust path if needed
 
 const basePath = "/island-hopper";
 
-// Route data for interactive map
-interface Route {
-  id: string;
-  name: string;
-  distance: string;
-  timeVTOL: string;
-  timeFerry: string;
-  coords: { x1: number; y1: number; x2: number; y2: number };
-}
-
-const routes: Route[] = [
-  {
-    id: "ibiza-mallorca",
-    name: "Ibiza ↔ Palma de Mallorca",
-    distance: "140 km",
-    timeVTOL: "33 min",
-    timeFerry: "2h 30m",
-    coords: { x1: 100, y1: 200, x2: 260, y2: 140 }
-  },
-  {
-    id: "mallorca-menorca",
-    name: "Palma de Mallorca ↔ Menorca",
-    distance: "132 km",
-    timeVTOL: "31 min",
-    timeFerry: "1h 45m",
-    coords: { x1: 260, y1: 140, x2: 410, y2: 90 }
-  },
-];
-
-// KPI data
-interface KPI {
-  id: string;
-  value: string;
-  label: string;
-  desc: string;
-}
-
-const kpis: KPI[] = [
-  { id: "range", value: "140 km", label: "Autonomia", desc: "Rota principal Ibiza–Palma de Mallorca com 140 km de extensão, coberta sem escalas com o sistema híbrido Li-S + PEMFC H₂." },
-  { id: "speed", value: "306 km/h", label: "Velocidade Cruzeiro", desc: "85 m/s em cruzeiro a 3 000 ft, proporcionados pela aerodinâmica avançada da asa de razão de aspeto 9 e propulsão elétrica distribuída." },
-  { id: "noise", value: "62 dB", label: "Ruído em Cruzeiro", desc: "Nível de pressão sonora em altitude de cruzeiro — comparável a uma conversa normal. Os ducted fans reduzem o ruído em 8–10 dB face a rotores abertos equivalentes." },
-  { id: "emissions", value: "0 g", label: "Emissões CO₂/km", desc: "Zero emissões diretas em voo com H₂ verde. A análise de ciclo de vida completo aponta para 14,97 kg CO₂-eq por voo com hidrogénio renovável." },
-  { id: "weight", value: "2 595 kg", label: "MTOW (Peso Máx.)", desc: "Peso máximo de descolagem: estrutura 692 kg, propulsão 417 kg, bateria Li-S 371 kg, célula PEMFC 130 kg, H₂ 16,6 kg e payload de 4 PAX + bagagem." },
-];
-
 export default function Home() {
+  const { language } = useLanguage();
+  const dict = dictionaries[language].home;
+
   const [activeRoute, setActiveRoute] = useState<string>("ibiza-mallorca");
   const [activeKPI, setActiveKPI] = useState<string>("range");
 
-  const currentRoute = routes.find(r => r.id === activeRoute) || routes[0];
+  const currentRoute = dict.map.routes.find((r) => r.id === activeRoute) || dict.map.routes[0];
+  const currentKPI = dict.kpisSection.kpis.find((k) => k.id === activeKPI) || dict.kpisSection.kpis[0];
 
   return (
     <div className="relative min-h-screen bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-emerald-500 selection:text-black">
       {/* CSS Animations */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes routeFlow {
-          to {
-            stroke-dashoffset: -20;
-          }
+          to { stroke-dashoffset: -20; }
         }
         .animate-route-flow {
           stroke-dasharray: 6 4;
@@ -104,63 +63,55 @@ export default function Home() {
         <div className="lg:col-span-7 flex flex-col gap-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 w-fit">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            Em Fase de Desenvolvimento
+            {dict.hero.badge}
           </div>
           
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-zinc-50">
-            A Revolução da Mobilidade nas{" "}
+            {dict.hero.titleP1}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-              Ilhas Baleares
+              {dict.hero.titleP2}
             </span>
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl">
-            Estamos a desenvolver o futuro da aviação regional sustentável. O <strong>Island Hopper</strong> é uma solução de mobilidade elétrica inovadora com arquitetura <em>tilt-duct</em>, desenhada para descolar verticalmente e efetuar ligações inter-ilhas ultrarrápidas com zero emissões diretas de carbono.
+            {dict.hero.desc1} <strong>Island Hopper</strong> {dict.hero.desc2} <em>tilt-duct</em> {dict.hero.desc3}
           </p>
 
           <div className="flex flex-wrap gap-4 mt-2">
-            <a 
-              href="#mapa" 
-              className="px-6 py-3 rounded-lg bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] text-center w-full sm:w-auto"
-            >
-              Explorar Rotas
+            <a href="#mapa" className="px-6 py-3 rounded-lg bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] text-center w-full sm:w-auto">
+              {dict.hero.btnExplore}
             </a>
-            <a 
-              href="#conceito" 
-              className="px-6 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold hover:bg-zinc-800 transition-all text-center w-full sm:w-auto"
-            >
-              Conceito Técnico
+            <a href="#conceito" className="px-6 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold hover:bg-zinc-800 transition-all text-center w-full sm:w-auto">
+              {dict.hero.btnConcept}
             </a>
           </div>
 
           {/* Quick Technical Specs bar */}
           <div className="grid grid-cols-3 gap-4 p-4 mt-6 rounded-lg bg-zinc-900/50 border border-zinc-800/60 backdrop-blur-sm max-w-xl">
             <div>
-              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">Propulsão</span>
-              <span className="text-sm font-semibold text-zinc-300">Elétrica (DEP)</span>
+              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">{dict.hero.specs.propulsion.label}</span>
+              <span className="text-sm font-semibold text-zinc-300">{dict.hero.specs.propulsion.value}</span>
             </div>
             <div>
-              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">Arquitetura</span>
-              <span className="text-sm font-semibold text-zinc-300">Tilt-Duct VTOL</span>
+              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">{dict.hero.specs.architecture.label}</span>
+              <span className="text-sm font-semibold text-zinc-300">{dict.hero.specs.architecture.value}</span>
             </div>
             <div>
-              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">Combustível</span>
-              <span className="text-sm font-semibold text-zinc-300">Híbrido Bateria + H₂</span>
+              <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">{dict.hero.specs.fuel.label}</span>
+              <span className="text-sm font-semibold text-zinc-300">{dict.hero.specs.fuel.value}</span>
             </div>
           </div>
         </div>
 
         {/* Right Content - eVTOL Concept Image */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="relative group w-full max-w-[480px]">
-            {/* Background Glow */}
+          <div className="relative group w-full max-w-[580px]">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-blue-500 opacity-20 blur-xl group-hover:opacity-40 transition-all duration-700" />
-            
             <div className="relative rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl animate-float">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/island_hopper_vtol.png`}
-                alt="Conceito do eVTOL Island Hopper em voo pelas Ilhas Baleares"
+                alt="Conceito do eVTOL Island Hopper em voo"
                 width={800}
                 height={450}
                 className="w-full h-auto object-cover transform hover:scale-105 transition-all duration-700"
@@ -168,10 +119,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <span className="text-[10px] uppercase text-emerald-400 font-semibold tracking-widest block mb-1">
-                  Render 3D Conceptual
+                  {dict.hero.image.badge}
                 </span>
                 <p className="text-xs text-zinc-300">
-                  Arquitetura de asa com 6 rotores elétricos inclináveis (Tilt-Duct).
+                  {dict.hero.image.caption}
                 </p>
               </div>
             </div>
@@ -182,19 +133,15 @@ export default function Home() {
       {/* Main Interactive Sections Wrapper */}
       <section id="mapa" className="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-zinc-900">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Mapa de Operação Inter-Ilhas
-          </h2>
-          <p className="text-zinc-400 mt-3 text-sm sm:text-base">
-            Selecione uma rota para simular a drástica redução nos tempos de viagem em comparação com os ferries marítimos tradicionais.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{dict.map.title}</h2>
+          <p className="text-zinc-400 mt-3 text-sm sm:text-base">{dict.map.subtitle}</p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left panel - Route Selector & Info */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="flex flex-col gap-3">
-              {routes.map(r => (
+              {dict.map.routes.map(r => (
                 <button
                   key={r.id}
                   onClick={() => setActiveRoute(r.id)}
@@ -205,9 +152,7 @@ export default function Home() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full ${
-                      activeRoute === r.id ? "bg-emerald-500" : "bg-zinc-700"
-                    }`} />
+                    <div className={`w-2 h-2 rounded-full ${activeRoute === r.id ? "bg-emerald-500" : "bg-zinc-700"}`} />
                     <span className="font-semibold text-sm sm:text-base">{r.name}</span>
                   </div>
                   <span className="text-xs font-mono bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded">
@@ -220,33 +165,27 @@ export default function Home() {
             {/* Route Stats Dashboard */}
             <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-sm shadow-xl flex flex-col gap-6">
               <div className="border-b border-zinc-800 pb-4">
-                <span className="text-xs uppercase text-zinc-500 tracking-wider font-semibold">Rota Selecionada</span>
+                <span className="text-xs uppercase text-zinc-500 tracking-wider font-semibold">{dict.map.ui.selectedRoute}</span>
                 <h3 className="text-xl font-bold text-zinc-200 mt-1">{currentRoute.name}</h3>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
-                  <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">Duração (VTOL)</span>
-                  <span className="text-2xl font-black text-emerald-400 tracking-tight block mt-1">
-                    {currentRoute.timeVTOL}
-                  </span>
-                  <span className="text-[10px] text-zinc-400 block mt-0.5">Voo Direto</span>
+                  <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">{dict.map.ui.durationVTOL}</span>
+                  <span className="text-2xl font-black text-emerald-400 tracking-tight block mt-1">{currentRoute.timeVTOL}</span>
+                  <span className="text-[10px] text-zinc-400 block mt-0.5">{dict.map.ui.directFlight}</span>
                 </div>
                 <div className="p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/50">
-                  <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">Ferries Convencionais</span>
-                  <span className="text-2xl font-black text-zinc-500 tracking-tight block mt-1">
-                    {currentRoute.timeFerry}
-                  </span>
-                  <span className="text-[10px] text-zinc-500 block mt-0.5">Média estimada</span>
+                  <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">{dict.map.ui.durationFerry}</span>
+                  <span className="text-2xl font-black text-zinc-500 tracking-tight block mt-1">{currentRoute.timeFerry}</span>
+                  <span className="text-[10px] text-zinc-500 block mt-0.5">{dict.map.ui.estimatedAvg}</span>
                 </div>
               </div>
 
               <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-lg p-3.5 text-xs text-emerald-400/90 leading-relaxed">
-                🚀 O <strong>Island Hopper</strong> poupa aproximadamente{" "}
-                <span className="font-bold underline">
-                  {activeRoute === "ibiza-mallorca" ? "1 hora e 57 minutos" : "1 hora e 14 minutos"}
-                </span>{" "}
-                de viagem nesta ligação inter-ilhas.
+                🚀 {dict.map.ui.savingsPrefix} <strong>Island Hopper</strong> {dict.map.ui.savingsMid}{" "}
+                <span className="font-bold underline">{currentRoute.savingsTime}</span>{" "}
+                {dict.map.ui.savingsSuffix}
               </div>
             </div>
           </div>
@@ -254,78 +193,48 @@ export default function Home() {
           {/* Right panel - Dynamic Air Traffic Radar Control Screen (SVG) */}
           <div className="lg:col-span-7 flex justify-center">
             <div className="relative w-full max-w-[500px] aspect-[5/3] bg-zinc-950 rounded-2xl border border-zinc-800 overflow-hidden shadow-2xl p-4 flex flex-col justify-between">
-              {/* Radar Grid overlay */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.06)_0%,transparent_70%)] pointer-events-none" />
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
 
-              {/* Header inside radar */}
               <div className="relative z-10 flex justify-between items-center text-[10px] text-zinc-500 font-mono">
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                  <span>ATC RADAR: ONLINE</span>
+                  <span>{dict.map.radar.online}</span>
                 </div>
-                <span>GRID BALEARIC v1.0.2</span>
+                <span>{dict.map.radar.version}</span>
               </div>
 
               {/* Main SVG Map */}
               <div className="relative flex-1 flex items-center justify-center">
                 <svg viewBox="0 0 500 300" className="w-full h-full relative z-10">
-                  {/* Outer Radar Rings */}
                   <circle cx="250" cy="150" r="130" fill="none" stroke="rgba(16, 185, 129, 0.05)" strokeWidth="1" />
                   <circle cx="250" cy="150" r="80" fill="none" stroke="rgba(16, 185, 129, 0.03)" strokeWidth="1" strokeDasharray="4 4" />
                   
-                  {/* Air Route Lines */}
-                  {routes.map(r => {
+                  {dict.map.routes.map(r => {
                     const isSelected = activeRoute === r.id;
                     return (
                       <g key={r.id}>
-                        {/* Background line glow */}
-                        <line
-                          x1={r.coords.x1}
-                          y1={r.coords.y1}
-                          x2={r.coords.x2}
-                          y2={r.coords.y2}
-                          stroke={isSelected ? "rgba(16, 185, 129, 0.4)" : "rgba(63, 63, 70, 0.2)"}
-                          strokeWidth={isSelected ? "4" : "1.5"}
-                          className="transition-all duration-300"
-                        />
-                        {/* Animated flowing line */}
-                        <line
-                          x1={r.coords.x1}
-                          y1={r.coords.y1}
-                          x2={r.coords.x2}
-                          y2={r.coords.y2}
-                          stroke={isSelected ? "#10b981" : "rgba(63, 63, 70, 0.4)"}
-                          strokeWidth={isSelected ? "2.5" : "1.5"}
-                          className={`transition-all duration-300 ${isSelected ? "animate-route-flow" : ""}`}
-                        />
+                        <line x1={r.coords.x1} y1={r.coords.y1} x2={r.coords.x2} y2={r.coords.y2} stroke={isSelected ? "rgba(16, 185, 129, 0.4)" : "rgba(63, 63, 70, 0.2)"} strokeWidth={isSelected ? "4" : "1.5"} className="transition-all duration-300" />
+                        <line x1={r.coords.x1} y1={r.coords.y1} x2={r.coords.x2} y2={r.coords.y2} stroke={isSelected ? "#10b981" : "rgba(63, 63, 70, 0.4)"} strokeWidth={isSelected ? "2.5" : "1.5"} className={`transition-all duration-300 ${isSelected ? "animate-route-flow" : ""}`} />
                       </g>
                     );
                   })}
 
-                  {/* Island Nodes */}
-                  {/* Ibiza */}
                   <g transform="translate(100, 200)">
                     <circle cx="0" cy="0" r="16" className="animate-pulse-radar" fill="rgba(16, 185, 129, 0.2)" />
                     <circle cx="0" cy="0" r="6" fill="#10b981" />
                     <text x="12" y="4" fill="#a1a1aa" fontSize="10" className="font-mono font-semibold select-none">IBIZA</text>
                   </g>
-
-                  {/* Formentera */}
                   <g transform="translate(90, 240)">
                     <circle cx="0" cy="0" r="4" fill="#a1a1aa" />
                     <text x="-40" y="-8" fill="#71717a" fontSize="9" className="font-mono select-none">FORMENTERA</text>
                   </g>
-
-                  {/* Mallorca */}
                   <g transform="translate(260, 140)">
                     <circle cx="0" cy="0" r="16" className="animate-pulse-radar" fill="rgba(16, 185, 129, 0.2)" />
                     <circle cx="0" cy="0" r="8" fill="#10b981" />
                     <text x="15" y="-5" fill="#a1a1aa" fontSize="10" className="font-mono font-semibold select-none">MALLORCA</text>
                     <text x="15" y="6" fill="#71717a" fontSize="8" className="font-mono select-none">(PALMA)</text>
                   </g>
-
-                  {/* Menorca */}
                   <g transform="translate(410, 90)">
                     <circle cx="0" cy="0" r="12" className="animate-pulse-radar" fill="rgba(16, 185, 129, 0.15)" />
                     <circle cx="0" cy="0" r="6" fill="#10b981" />
@@ -334,10 +243,9 @@ export default function Home() {
                 </svg>
               </div>
 
-              {/* Footer info inside radar */}
               <div className="relative z-10 flex justify-between items-center text-[9px] text-zinc-600 font-mono">
-                <span>SIMULATION INTERVAL: 1S</span>
-                <span>SYSTEM STABLE</span>
+                <span>{dict.map.radar.simulation}</span>
+                <span>{dict.map.radar.status}</span>
               </div>
             </div>
           </div>
@@ -347,7 +255,7 @@ export default function Home() {
       {/* Problem vs Solution Section */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-20 bg-zinc-900/30 border-t border-zinc-900">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left panel - O Problema */}
+          {/* Left panel - The Problem */}
           <div className="p-8 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 backdrop-blur-sm hover:border-red-500/20 hover:shadow-[0_0_30px_rgba(239,68,68,0.05)] transition-all">
             <div className="w-10 h-10 rounded bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6">
               <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -355,35 +263,23 @@ export default function Home() {
               </svg>
             </div>
             
-            <h3 className="text-2xl font-bold text-zinc-100">O Problema</h3>
-            <p className="text-zinc-500 text-xs mt-1">Obstáculos nas viagens insulares atuais</p>
+            <h3 className="text-2xl font-bold text-zinc-100">{dict.problemSolution.problem.title}</h3>
+            <p className="text-zinc-500 text-xs mt-1">{dict.problemSolution.problem.subtitle}</p>
 
             <ul className="mt-6 flex flex-col gap-4">
-              <li className="flex gap-3">
-                <span className="text-red-500 font-bold">✕</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Procura Altamente Sazonal</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">As ligações inter-ilhas enfrentam sobrecarga massiva e picos de tráfego, complicando a logística regional.</p>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-red-500 font-bold">✕</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Infraestruturas Marítimas Saturadas</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">As viagens de ferry prolongam-se por horas, provocando longos atrasos no embarque e desconforto aos passageiros.</p>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-red-500 font-bold">✕</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Pegada de Carbono e Impacto Sonoro</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">Os transportes aéreos e marítimos atuais emitem poluentes e criam elevados níveis de ruído em ecossistemas de elevada sensibilidade ambiental.</p>
-                </div>
-              </li>
+              {dict.problemSolution.problem.items.map((item, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <div>
+                    <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">{item.title}</h4>
+                    <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Right panel - A Solução Sustentável */}
+          {/* Right panel - The Solution */}
           <div className="p-8 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 backdrop-blur-sm hover:border-emerald-500/20 hover:shadow-[0_0_30px_rgba(16,185,129,0.05)] transition-all">
             <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
               <svg className="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -391,31 +287,19 @@ export default function Home() {
               </svg>
             </div>
             
-            <h3 className="text-2xl font-bold text-zinc-100">A Solução Sustentável</h3>
-            <p className="text-zinc-500 text-xs mt-1">Conectividade e inovação regional verde</p>
+            <h3 className="text-2xl font-bold text-zinc-100">{dict.problemSolution.solution.title}</h3>
+            <p className="text-zinc-500 text-xs mt-1">{dict.problemSolution.solution.subtitle}</p>
 
             <ul className="mt-6 flex flex-col gap-4">
-              <li className="flex gap-3">
-                <span className="text-emerald-400 font-bold">✓</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Eletrificação e Tecnologia Limpa</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">Operações com zero emissões diretas propiciadas por propulsão elétrica distribuída de alta eficiência.</p>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-400 font-bold">✓</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Mobilidade Ponto a Ponto Rápida</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">Descolagem e aterragem vertical (VTOL) que dispensa aeroportos extensos e liga diretamente portos urbanos em minutos.</p>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-emerald-400 font-bold">✓</span>
-                <div>
-                  <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">Respeito pela Biodiversidade Insular</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">Uma assinatura sonora reduzida garantida pelo projeto acústico dos ducted-fans elétricos, protegendo a fauna das ilhas.</p>
-                </div>
-              </li>
+               {dict.problemSolution.solution.items.map((item, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="text-emerald-400 font-bold">✓</span>
+                  <div>
+                    <h4 className="font-semibold text-zinc-300 text-sm sm:text-base">{item.title}</h4>
+                    <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -424,74 +308,37 @@ export default function Home() {
       {/* Conceito Inovador / Features */}
       <section id="conceito" className="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-zinc-900">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            O Conceito Inovador
-          </h2>
-          <p className="text-zinc-400 mt-3 text-sm sm:text-base">
-            Equilíbrio perfeito entre eficiência mecânica, autonomia energética e segurança operacional.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{dict.concept.title}</h2>
+          <p className="text-zinc-400 mt-3 text-sm sm:text-base">{dict.concept.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Card 1 - Tilt-Duct */}
-          <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/30 transition-all flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center font-bold text-emerald-400 text-sm mb-6">
-                01
+          {dict.concept.cards.map((card, i) => (
+            <div key={i} className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/30 transition-all flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center font-bold text-emerald-400 text-sm mb-6">
+                  0{i + 1}
+                </div>
+                <h3 className="text-xl font-bold text-zinc-100 mb-3">{card.title}</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{card.desc}</p>
               </div>
-              <h3 className="text-xl font-bold text-zinc-100 mb-3">Arquitetura "Tilt-Duct"</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Asas integradas com condutas inclináveis. Combina a flexibilidade de descolagem vertical de um helicóptero com a velocidade e eficiência de voo sustentado de uma asa fixa.
-              </p>
+              <span className="block mt-6 text-xs text-zinc-500 font-semibold tracking-wide">{card.tag}</span>
             </div>
-            <span className="block mt-6 text-xs text-zinc-500 font-semibold tracking-wide">CAPACIDADE VTOL</span>
-          </div>
-
-          {/* Card 2 - Hybrid Power */}
-          <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/30 transition-all flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center font-bold text-emerald-400 text-sm mb-6">
-                02
-              </div>
-              <h3 className="text-xl font-bold text-zinc-100 mb-3">Bateria Híbrida + Pilha H₂</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Sistema avançado que combina densidade energética superior de células de combustível a hidrogénio de alto desempenho com o poder imediato de resposta de baterias de iões de lítio.
-              </p>
-            </div>
-            <span className="block mt-6 text-xs text-zinc-500 font-semibold tracking-wide">ENERGIA EFICIENTE</span>
-          </div>
-
-          {/* Card 3 - DEP */}
-          <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/30 transition-all flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center font-bold text-emerald-400 text-sm mb-6">
-                03
-              </div>
-              <h3 className="text-xl font-bold text-zinc-100 mb-3">Propulsão DEP (6 Motores)</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Propulsão Elétrica Distribuída estruturada em 6 motores independentes. Garante redundância extrema, aumentando exponencialmente a segurança em caso de falha mecânica.
-              </p>
-            </div>
-            <span className="block mt-6 text-xs text-zinc-500 font-semibold tracking-wide">REDUNDÂNCIA TOTAL</span>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Interactive KPIs explorer */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-zinc-900 bg-zinc-900/20">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Especificações Chave e Desempenho
-          </h2>
-          <p className="text-zinc-400 mt-3 text-sm sm:text-base">
-            Métricas de desenho obtidas através da simulação estrutural e ensaios virtuais do projeto Island Hopper.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{dict.kpisSection.title}</h2>
+          <p className="text-zinc-400 mt-3 text-sm sm:text-base">{dict.kpisSection.subtitle}</p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* KPI Buttons */}
           <div className="lg:col-span-5 flex flex-col gap-3">
-            {kpis.map(k => (
+            {dict.kpisSection.kpis.map(k => (
               <button
                 key={k.id}
                 onClick={() => setActiveKPI(k.id)}
@@ -508,7 +355,7 @@ export default function Home() {
                 <span className={`text-xs font-semibold px-2 py-1 rounded transition-colors ${
                   activeKPI === k.id ? "bg-emerald-500/20 text-emerald-400" : "bg-zinc-800 text-zinc-400 group-hover:text-zinc-200"
                 }`}>
-                  Detalhes
+                  {dict.kpisSection.ui.details}
                 </span>
               </button>
             ))}
@@ -518,31 +365,27 @@ export default function Home() {
           <div className="lg:col-span-7">
             <div className="p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-sm min-h-[300px] flex flex-col justify-between shadow-2xl relative overflow-hidden">
               <div className="absolute right-4 top-4 text-zinc-800/30 text-8xl font-black select-none pointer-events-none uppercase">
-                {kpis.find(k => k.id === activeKPI)?.id.slice(0, 3)}
+                {currentKPI.id.slice(0, 3)}
               </div>
               
               <div className="relative z-10">
-                <span className="text-xs uppercase text-emerald-400 font-bold tracking-widest">Métrica Técnico-Operacional</span>
+                <span className="text-xs uppercase text-emerald-400 font-bold tracking-widest">{dict.kpisSection.ui.metricLabel}</span>
                 
                 <div className="mt-8 flex flex-col gap-2">
-                  <h3 className="text-4xl sm:text-6xl font-black tracking-tight text-zinc-100">
-                    {kpis.find(k => k.id === activeKPI)?.value}
-                  </h3>
-                  <span className="text-lg font-bold text-zinc-300 mt-1">
-                    {kpis.find(k => k.id === activeKPI)?.label}
-                  </span>
+                  <h3 className="text-4xl sm:text-6xl font-black tracking-tight text-zinc-100">{currentKPI.value}</h3>
+                  <span className="text-lg font-bold text-zinc-300 mt-1">{currentKPI.label}</span>
                 </div>
 
                 <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mt-6 max-w-xl">
-                  {kpis.find(k => k.id === activeKPI)?.desc}
+                  {currentKPI.desc}
                 </p>
               </div>
 
               {/* Progress meter visual detail */}
               <div className="mt-12 relative z-10 border-t border-zinc-800/60 pt-6">
                 <div className="flex justify-between text-xs text-zinc-500 mb-2">
-                  <span>NÍVEL DE OTIMIZAÇÃO</span>
-                  <span className="font-mono text-emerald-400">98.5% STABLE</span>
+                  <span>{dict.kpisSection.ui.optimization}</span>
+                  <span className="font-mono text-emerald-400">{dict.kpisSection.ui.stable}</span>
                 </div>
                 <div className="h-1.5 w-full bg-zinc-950 rounded-full overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full w-[92%] animate-pulse" />

@@ -2,51 +2,82 @@
 
 import { useState } from "react";
 import { routes } from "@/lib/data/routes";
+import { useLanguage } from "@/components/context/LanguageContext"; // Adjust path if needed
+import { dictionaries } from "../../../lib/data/dictionaries"; // Adjust path if needed
 
 export default function RouteMap() {
+  const { language } = useLanguage();
   const [activeRoute, setActiveRoute] = useState(routes[0].id);
+
+  // Safe dictionary extraction
+  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
+  const dict = specDict?.routeMap || {
+    selectedRouteLabel: "Rota Selecionada",
+    vtolLabel: "Island Hopper",
+    vtolSub: "Voo direto VTOL",
+    ferryLabel: "Ferry Convencional",
+    ferrySub: "Média estimada",
+    savingsPrefix: "O Island Hopper poupa aproximadamente",
+    savingsSuffix: "de viagem nesta ligação inter-ilhas.",
+    hourUnit: "h",
+    minuteUnit: "min",
+    minutesOnlyUnit: "minutos",
+    translations: {}
+  };
+
   const currentRoute = routes.find((r) => r.id === activeRoute) || routes[0];
 
+  // Dynamic time calculations integrated with locale templates
   const ferryTimeSaved = currentRoute.ferryMinutes - currentRoute.vtolMinutes;
   const hoursS = Math.floor(ferryTimeSaved / 60);
   const minsS = ferryTimeSaved % 60;
-  const timeSavedText = hoursS > 0 ? `${hoursS}h ${minsS}min` : `${minsS} minutos`;
+  
+  const timeSavedText = hoursS > 0 
+    ? `${hoursS}${dict.hourUnit} ${minsS}${dict.minuteUnit}` 
+    : `${minsS} ${dict.minutesOnlyUnit}`;
+
+  // Fallbacks for data-driven geographical names
+  const localizedRouteName = dict.translations?.[currentRoute.name] || currentRoute.name;
 
   return (
     <div className="grid lg:grid-cols-12 gap-12 items-center">
+      {/* ── LEFT PANEL: CONFIGURATOR & METRICS ── */}
       <div className="lg:col-span-5 flex flex-col gap-6">
         <div className="flex flex-col gap-3">
-          {routes.map((r) => (
-            <button
-              key={r.id}
-              onClick={() => setActiveRoute(r.id)}
-              className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between ${
-                activeRoute === r.id
-                  ? "bg-zinc-900 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.1)] text-zinc-50"
-                  : "bg-zinc-950/40 border-zinc-800 hover:border-zinc-700 text-zinc-400"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    activeRoute === r.id ? "bg-emerald-500" : "bg-zinc-700"
-                  }`}
-                />
-                <span className="font-semibold text-sm">{r.name}</span>
-              </div>
-              <span className="text-xs font-mono bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded">
-                {r.distanceKm} km
-              </span>
-            </button>
-          ))}
+          {routes.map((r) => {
+            const label = dict.translations?.[r.name] || r.name;
+            return (
+              <button
+                key={r.id}
+                onClick={() => setActiveRoute(r.id)}
+                className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between ${
+                  activeRoute === r.id
+                    ? "bg-zinc-900 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.1)] text-zinc-50"
+                    : "bg-zinc-950/40 border-zinc-800 hover:border-zinc-700 text-zinc-400"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      activeRoute === r.id ? "bg-emerald-500" : "bg-zinc-700"
+                    }`}
+                  />
+                  <span className="font-semibold text-sm">{label}</span>
+                </div>
+                <span className="text-xs font-mono bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded">
+                  {r.distanceKm} km
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-sm shadow-xl flex flex-col gap-6">
           <div className="border-b border-zinc-800 pb-4">
             <span className="text-xs uppercase text-zinc-500 tracking-wider font-semibold">
-              Rota Selecionada
+              {dict.selectedRouteLabel}
             </span>
-            <h3 className="text-xl font-bold text-zinc-200 mt-1">{currentRoute.name}</h3>
+            <h3 className="text-xl font-bold text-zinc-200 mt-1">{localizedRouteName}</h3>
             <p className="text-xs text-zinc-500 mt-1 font-mono">
               {currentRoute.fromCode} → {currentRoute.toCode} · {currentRoute.distanceKm} km
             </p>
@@ -55,33 +86,32 @@ export default function RouteMap() {
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
               <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">
-                Island Hopper
+                {dict.vtolLabel}
               </span>
               <span className="text-2xl font-black text-emerald-400 tracking-tight block mt-1">
                 {currentRoute.vtolMinutes} min
               </span>
-              <span className="text-[10px] text-zinc-400 block mt-0.5">Voo direto VTOL</span>
+              <span className="text-[10px] text-zinc-400 block mt-0.5">{dict.vtolSub}</span>
             </div>
             <div className="p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/50">
               <span className="block text-[10px] text-zinc-500 uppercase tracking-wider">
-                Ferry Convencional
+                {dict.ferryLabel}
               </span>
               <span className="text-2xl font-black text-zinc-500 tracking-tight block mt-1">
-                {Math.floor(currentRoute.ferryMinutes / 60)}h{" "}
-                {currentRoute.ferryMinutes % 60 > 0 ? `${currentRoute.ferryMinutes % 60}m` : ""}
+                {Math.floor(currentRoute.ferryMinutes / 60)}{dict.hourUnit}{" "}
+                {currentRoute.ferryMinutes % 60 > 0 ? `${currentRoute.ferryMinutes % 60}${dict.minuteUnit}` : ""}
               </span>
-              <span className="text-[10px] text-zinc-500 block mt-0.5">Média estimada</span>
+              <span className="text-[10px] text-zinc-500 block mt-0.5">{dict.ferrySub}</span>
             </div>
           </div>
 
           <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-lg p-3.5 text-xs text-emerald-400/90 leading-relaxed">
-            O <strong>Island Hopper</strong> poupa aproximadamente{" "}
-            <span className="font-bold underline">{timeSavedText}</span> de viagem nesta
-            ligação inter-ilhas.
+            {dict.savingsPrefix} <strong>{timeSavedText}</strong> {dict.savingsSuffix}
           </div>
         </div>
       </div>
 
+      {/* ── RIGHT PANEL: INTERACTIVE RADAR GRAPHIC ── */}
       <div className="lg:col-span-7 flex justify-center">
         <div className="relative w-full max-w-[500px] aspect-[5/3] bg-zinc-950 rounded-2xl border border-zinc-800 overflow-hidden shadow-2xl p-4 flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.06)_0%,transparent_70%)] pointer-events-none" />
