@@ -22,6 +22,28 @@ export default function NotFound() {
 
       {/* Error code */}
       <div className="relative z-10">
+        {/* Airplane illustration */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 300 100"
+          className="w-56 h-auto mx-auto mb-6 opacity-75"
+          aria-hidden="true"
+        >
+          {/* Fuselage */}
+          <ellipse cx="148" cy="48" rx="118" ry="13" fill="#10b981" />
+          {/* Nose cone */}
+          <path d="M262,40 Q292,44 298,48 Q292,52 262,56 Z" fill="#34d399" />
+          {/* Tail cone */}
+          <path d="M34,40 Q10,44 4,48 Q10,52 34,56 Z" fill="#059669" />
+          {/* Vertical tail fin */}
+          <path d="M44,40 L36,16 L72,40 Z" fill="#059669" />
+          {/* Main swept wings */}
+          <path d="M108,48 L188,48 L228,84 L68,84 Z" fill="#059669" />
+          {/* Horizontal stabilizer */}
+          <path d="M18,48 L52,48 L40,62 L6,59 Z" fill="#10b981" />
+          {/* Cockpit window */}
+          <path d="M208,38 Q238,34 254,43 Q238,48 208,46 Z" fill="rgba(167,243,208,0.45)" />
+        </svg>
         <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-500 font-mono mb-3">
           {dict.alertLabel}
         </p>

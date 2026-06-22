@@ -50,7 +50,7 @@ export default function TeamGrid() {
               <span className="block font-bold text-zinc-200 text-sm">{sup.name}</span>
               <span className="block text-[11px] text-emerald-500/80 font-semibold mt-1 uppercase tracking-wide">
                 {/* Dynamically fallback to raw supervisor title if locale key is not declared */}
-                {dict.titles?.[sup.title] || sup.title}
+                {(dict.titles as Record<string, string>)?.[sup.title] || sup.title}
               </span>
             </div>
           ))}
