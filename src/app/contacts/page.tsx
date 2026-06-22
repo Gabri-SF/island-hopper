@@ -125,13 +125,24 @@ export default function ContactsPage() {
                 </button>
               </form>
             )}
-            <a
-              href="/island-hopper/g11_report.pdf"
-              download
-              className="mt-4 inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
-            >
-              <span>↓</span> {dict.institution.downloadBtn}
-            </a>
+
+            <div className="mt-8">
+              <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
+                {dict.institution.title}
+              </h3>
+              <div className="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800 flex flex-col gap-2">
+                <p className="font-bold text-zinc-200 text-sm">{dict.institution.name}</p>
+                <p className="text-zinc-500 text-sm">{dict.institution.university}</p>
+                <p className="text-zinc-600 text-xs">{dict.institution.address}</p>
+                <a
+                  href="/island-hopper/g11_report.pdf"
+                  download
+                  className="mt-4 inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
+                >
+                  <span>↓</span> {dict.institution.downloadBtn}
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Team and Info Column */}
@@ -153,7 +164,7 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid gap-4">
               <div>
                 <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
                   {dict.supervisors.title}
@@ -170,17 +181,6 @@ export default function ContactsPage() {
                       </span>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
-                  {dict.institution.title}
-                </h3>
-                <div className="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800 flex flex-col gap-2">
-                  <p className="font-bold text-zinc-200 text-sm">{dict.institution.name}</p>
-                  <p className="text-zinc-500 text-sm">{dict.institution.university}</p>
-                  <p className="text-zinc-600 text-xs">{dict.institution.address}</p>
                 </div>
               </div>
             </div>

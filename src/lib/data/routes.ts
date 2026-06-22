@@ -72,7 +72,7 @@ export const transportModes: TransportMode[] = [
   {
     mode: "Island Hopper (VTOL)",
     travelTime: "33–35 min (+10 min embarque)",
-    costPerPax: "≈€136",
+    costPerPax: "€91-135",
     emissionsPerPax: "≈15 kg CO₂-eq (H₂ verde + rede local)",
     notes: "Zero emissões diretas em voo",
   },

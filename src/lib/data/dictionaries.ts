@@ -328,7 +328,7 @@ export const dictionaries = {
             label: "Turistas/Ano",
             desc: "2025 — procura sazonal",
           },
-          { value: "€91 - €135", label: "Preço / Pax", desc: "Com margem de 50%" },
+          { value: "€91 - 135", label: "Preço / Pax", desc: "Com margem de 50%" },
           {
             value: "Premium",
             label: "Segmento",
@@ -417,7 +417,7 @@ export const dictionaries = {
         },
         pricing: {
           title: "Preço por Passageiro",
-          price: "€91 - €135",
+          price: "€91 - 135",
           subtitle: "por passageiro · com margem de 50%",
           benefits: [
             "Competitivo vs. helicóptero (€1.800+)",
@@ -1499,7 +1499,7 @@ export const dictionaries = {
             desc: "2025 — seasonal demand",
           },
           {
-            value: "~€135",
+            value: "€91 - 135",
             label: "Price / Pax",
             desc: "With 50% profit margin",
           },
@@ -1584,7 +1584,7 @@ export const dictionaries = {
         },
         pricing: {
           title: "Price per Passenger",
-          price: "€91 - €135",
+          price: "€91 - 135",
           subtitle: "per passenger · with 50% margin",
           benefits: [
             "Competitive vs. helicopter (€1,800+)",
