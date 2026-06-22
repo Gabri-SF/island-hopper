@@ -581,6 +581,8 @@ export const dictionaries = {
     },
     ahp: {
       scoreLabel: "AHP score",
+      prosLabel: "Vantagens",
+      consLabel: "Desvantagens",
       criteriaTitle: "Critérios de Avaliação (9 critérios, pesos AHP)",
       criteriaLabels: {
         range: "Autonomia",
@@ -888,6 +890,12 @@ export const dictionaries = {
           value: "2.44 kWh (regenerativo)",
         },
       },
+      timelineLabels: {
+        altitude: "Altitude",
+        velocity: "Velocidade",
+        duration: "Duração",
+        distance: "Distância",
+      },
       summary: {
         totalLabel: "Total da Missão",
         totalValue: "71,66 kWh",
@@ -1033,6 +1041,12 @@ export const dictionaries = {
       hourUnit: "h",
       minuteUnit: "min",
       minutesOnlyUnit: "minutos",
+      radar: {
+        online: "ATC RADAR: ONLINE",
+        version: "GRID BALEARIC v1.0.2",
+        simulation: "INTERVALO SIM: 1S",
+        status: "SISTEMA ESTÁVEL",
+      },
       translations: {
         "Maiorca a Menorca": "Maiorca a Menorca",
         "Ibiza a Maiorca": "Ibiza a Maiorca",
@@ -1145,6 +1159,14 @@ export const dictionaries = {
         { label: "Conversa normal", spl: 60, note: "Referência quotidiana" },
         { label: "Residencial tranquilo", spl: 40, note: "Referência noturna" },
       ],
+    },
+    notFound: {
+      alertLabel: "ATC ALERTA · ROTA NÃO ENCONTRADA",
+      title: "Este voo não existe no nosso sistema.",
+      desc: "O Island Hopper opera apenas 2 rotas. Esta não é nenhuma delas. Talvez tenhas tentado voar para Formentera? Não fazemos isso.",
+      btnHome: "Regressar ao Hangar",
+      btnRoutes: "Ver Rotas Disponíveis",
+      log: "FLIGHT LOG: ERR_ROUTE_NOT_FOUND · IST 2026 · GRUPO 11",
     },
   },
   en: {
@@ -1726,6 +1748,8 @@ export const dictionaries = {
     },
     ahp: {
       scoreLabel: "AHP score",
+      prosLabel: "Pros",
+      consLabel: "Cons",
       criteriaTitle: "Evaluation Criteria (9 criteria, AHP weights)",
       criteriaLabels: {
         range: "Range",
@@ -2019,6 +2043,12 @@ export const dictionaries = {
         cruise: { label: "Cruise Profile", value: "32.30 kWh" },
         descent: { label: "Descent & Landing", value: "2.44 kWh (regenerative)" },
       },
+      timelineLabels: {
+        altitude: "Altitude",
+        velocity: "Velocity",
+        duration: "Duration",
+        distance: "Distance",
+      },
       summary: {
         totalLabel: "Total Mission Profile Allocation",
         totalValue: "71.66 kWh",
@@ -2171,6 +2201,12 @@ export const dictionaries = {
       hourUnit: "h",
       minuteUnit: "m",
       minutesOnlyUnit: "minutes",
+      radar: {
+        online: "ATC RADAR: ONLINE",
+        version: "GRID BALEARIC v1.0.2",
+        simulation: "SIMULATION INTERVAL: 1S",
+        status: "SYSTEM STABLE",
+      },
       translations: {
         "Maiorca a Menorca": "Mallorca to Menorca",
         "Ibiza a Maiorca": "Ibiza to Mallorca",
@@ -2292,6 +2328,14 @@ export const dictionaries = {
           note: "Nighttime ambient benchmark",
         },
       ],
+    },
+    notFound: {
+      alertLabel: "ATC ALERT · ROUTE NOT FOUND",
+      title: "This flight does not exist in our system.",
+      desc: "Island Hopper only operates 2 routes. This isn't one of them. Maybe you tried to fly to Formentera? We don't do that.",
+      btnHome: "Return to Hangar",
+      btnRoutes: "View Available Routes",
+      log: "FLIGHT LOG: ERR_ROUTE_NOT_FOUND · IST 2026 · GROUP 11",
     },
   },
 };

@@ -31,7 +31,7 @@ export default function ArchitectureComparison() {
             {/* Pros List Section */}
             <div className="mb-4">
               <span className="block text-[10px] text-zinc-500 uppercase tracking-wider mb-2 font-bold">
-                Pros
+                {dict.prosLabel}
               </span>
               <ul className="flex flex-col gap-1.5">
                 {/* FIX: Read from archText instead of arch */}
@@ -47,7 +47,7 @@ export default function ArchitectureComparison() {
             {/* Cons List Section */}
             <div>
               <span className="block text-[10px] text-zinc-500 uppercase tracking-wider mb-2 font-bold">
-                Cons
+                {dict.consLabel}
               </span>
               <ul className="flex flex-col gap-1.5">
                 {/* FIX: Also apply to cons if this component renders them */}

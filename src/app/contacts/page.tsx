@@ -169,7 +169,7 @@ export default function ContactsPage() {
               <p className="text-zinc-600 text-sm mt-1">{dict.institution.address}</p>
               <div className="mt-4 flex flex-col gap-2">
                 <a
-                  href="/g11_report.pdf"
+                  href="/island-hopper/g11_report.pdf"
                   download
                   className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
                 >

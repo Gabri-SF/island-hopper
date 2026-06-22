@@ -41,6 +41,22 @@ export default function RouteMap() {
 
   return (
     <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes routeFlow {
+          to { stroke-dashoffset: -20; }
+        }
+        .animate-route-flow {
+          stroke-dasharray: 6 4;
+          animation: routeFlow 1.5s linear infinite;
+        }
+        @keyframes pulseRadar {
+          0% { transform: scale(0.9); opacity: 0.8; }
+          100% { transform: scale(2.2); opacity: 0; }
+        }
+        .animate-pulse-radar {
+          animation: pulseRadar 2.5s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+        }
+      `}} />
       {/* ── LEFT PANEL: CONFIGURATOR & METRICS ── */}
       <div className="lg:col-span-5 flex flex-col gap-6">
         <div className="flex flex-col gap-3">
@@ -120,9 +136,9 @@ export default function RouteMap() {
           <div className="relative z-10 flex justify-between items-center text-[10px] text-zinc-500 font-mono">
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-              <span>ATC RADAR: ONLINE</span>
+              <span>{dict.radar?.online ?? "ATC RADAR: ONLINE"}</span>
             </div>
-            <span>GRID BALEARIC v1.0.2</span>
+            <span>{dict.radar?.version ?? "GRID BALEARIC v1.0.2"}</span>
           </div>
 
           <div className="relative flex-1 flex items-center justify-center">
@@ -146,14 +162,14 @@ export default function RouteMap() {
                       x2={r.coords.x2} y2={r.coords.y2}
                       stroke={isSelected ? "#10b981" : "rgba(63,63,70,0.4)"}
                       strokeWidth={isSelected ? "2.5" : "1.5"}
-                      strokeDasharray={isSelected ? "6 4" : undefined}
-                      className="transition-all duration-300"
+                      className={`transition-all duration-300 ${isSelected ? "animate-route-flow" : ""}`}
                     />
                   </g>
                 );
               })}
 
               <g transform="translate(100, 200)">
+                <circle cx="0" cy="0" r="16" className="animate-pulse-radar" fill="rgba(16,185,129,0.2)" />
                 <circle cx="0" cy="0" r="6" fill="#10b981" />
                 <text x="12" y="4" fill="#a1a1aa" fontSize="10" fontFamily="monospace" fontWeight="600">IBIZA</text>
               </g>
@@ -162,11 +178,13 @@ export default function RouteMap() {
                 <text x="-40" y="-8" fill="#71717a" fontSize="9" fontFamily="monospace">FORMENTERA</text>
               </g>
               <g transform="translate(260, 140)">
+                <circle cx="0" cy="0" r="16" className="animate-pulse-radar" fill="rgba(16,185,129,0.2)" />
                 <circle cx="0" cy="0" r="8" fill="#10b981" />
                 <text x="15" y="-5" fill="#a1a1aa" fontSize="10" fontFamily="monospace" fontWeight="600">MALLORCA</text>
                 <text x="15" y="6" fill="#71717a" fontSize="8" fontFamily="monospace">(PALMA)</text>
               </g>
               <g transform="translate(410, 90)">
+                <circle cx="0" cy="0" r="12" className="animate-pulse-radar" fill="rgba(16,185,129,0.15)" />
                 <circle cx="0" cy="0" r="6" fill="#10b981" />
                 <text x="-35" y="18" fill="#a1a1aa" fontSize="10" fontFamily="monospace" fontWeight="600">MENORCA</text>
               </g>
@@ -174,8 +192,8 @@ export default function RouteMap() {
           </div>
 
           <div className="relative z-10 flex justify-between items-center text-[9px] text-zinc-600 font-mono">
-            <span>SIMULATION INTERVAL: 1S</span>
-            <span>SYSTEM STABLE</span>
+            <span>{dict.radar?.simulation ?? "SIMULATION INTERVAL: 1S"}</span>
+            <span>{dict.radar?.status ?? "SYSTEM STABLE"}</span>
           </div>
         </div>
       </div>

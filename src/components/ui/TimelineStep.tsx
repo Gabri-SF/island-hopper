@@ -7,6 +7,7 @@ interface Props {
   velocity: string;
   duration: string;
   range: string;
+  labels?: { altitude: string; velocity: string; duration: string; distance: string };
   active?: boolean;
   onClick?: () => void;
 }
@@ -20,6 +21,7 @@ export default function TimelineStep({
   velocity,
   duration,
   range,
+  labels,
   active,
   onClick,
 }: Props) {
@@ -55,19 +57,19 @@ export default function TimelineStep({
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[11px]">
           <div>
-            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">Altitude</span>
+            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">{labels?.altitude ?? "Altitude"}</span>
             <span className="text-zinc-400 font-mono">{altitude}</span>
           </div>
           <div>
-            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">Velocidade</span>
+            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">{labels?.velocity ?? "Velocidade"}</span>
             <span className="text-zinc-400 font-mono">{velocity}</span>
           </div>
           <div>
-            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">Duração</span>
+            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">{labels?.duration ?? "Duração"}</span>
             <span className="text-zinc-400 font-mono">{duration}</span>
           </div>
           <div>
-            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">Distância</span>
+            <span className="block text-zinc-600 uppercase tracking-wide mb-0.5">{labels?.distance ?? "Distância"}</span>
             <span className="text-zinc-400 font-mono">{range}</span>
           </div>
         </div>

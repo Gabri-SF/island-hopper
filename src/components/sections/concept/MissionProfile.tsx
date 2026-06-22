@@ -48,6 +48,7 @@ export default function MissionProfile() {
               velocity={phase.velocity}
               duration={phase.duration}
               range={phase.range}
+              labels={dict.timelineLabels}
               active={activePhase === phase.id}
               onClick={() => setActivePhase(phase.id)}
             />
