@@ -105,7 +105,7 @@ export default function Home() {
 
         {/* Right Content - eVTOL Concept Image */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="relative group w-full max-w-[480px]">
+          <div className="relative group w-full max-w-[580px]">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-emerald-500 to-blue-500 opacity-20 blur-xl group-hover:opacity-40 transition-all duration-700" />
             <div className="relative rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden shadow-2xl animate-float">
               {/* eslint-disable-next-line @next/next/no-img-element */}
