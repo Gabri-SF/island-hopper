@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Logo & Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="island-hopper/favicon.ico" alt="Island Hopper" width={32} height={32} className="rounded" />
+              <Image src="/island-hopper/favicon.ico" alt="Island Hopper" width={32} height={32} className="rounded" />
               <span className="font-extrabold tracking-wider text-sm text-zinc-300">ISLAND HOPPER</span>
             </div>
             <p className="text-zinc-500 leading-relaxed">
