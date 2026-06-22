@@ -35,7 +35,7 @@ export default function RouteMap() {
     : `${minsS} ${dict.minutesOnlyUnit}`;
 
   // Fallbacks for data-driven geographical names
-  const localizedRouteName = dict.translations?.[currentRoute.name] || currentRoute.name;
+  const localizedRouteName = (dict.translations as Record<string, string>)?.[currentRoute.name] || currentRoute.name;
 
   return (
     <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -59,7 +59,7 @@ export default function RouteMap() {
       <div className="lg:col-span-5 flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           {routes.map((r) => {
-            const label = dict.translations?.[r.name] || r.name;
+            const label = (dict.translations as Record<string, string>)?.[r.name] || r.name;
             return (
               <button
                 key={r.id}
