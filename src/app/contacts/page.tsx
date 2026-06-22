@@ -4,8 +4,13 @@ import { useState } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Badge from "@/components/ui/Badge";
 import { teamMembers, supervisors } from "@/lib/data/team";
+import { useLanguage } from "@/components/context/LanguageContext"; // Adjust path if needed
+import { dictionaries } from "../../lib/data/dictionaries"; // Adjust path if needed
 
 export default function ContactsPage() {
+  const { language } = useLanguage();
+  const dict = dictionaries[language].contacts;
+
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [sent, setSent] = useState(false);
 
@@ -16,37 +21,39 @@ export default function ContactsPage() {
 
   return (
     <div className="bg-zinc-950 text-zinc-50">
+      {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-20">
-        <Badge variant="default">Grupo 11 · IST 2026</Badge>
+        <Badge variant="default">{dict.hero.badge}</Badge>
         <h1 className="mt-6 text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-zinc-50">
-          Contactos
+          {dict.hero.title}
         </h1>
         <p className="mt-6 text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl">
-          Este é um projeto académico aberto a feedback. Se tens questões sobre a metodologia,
-          os resultados técnicos ou potenciais colaborações, entra em contacto connosco.
+          {dict.hero.description}
         </p>
       </section>
 
+      {/* Main Content Section */}
       <section className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-900">
         <div className="grid lg:grid-cols-2 gap-16">
+          {/* Contact Form Column */}
           <div>
             <SectionHeader
-              badge="Formulário"
-              title="Envia uma Mensagem"
+              badge={dict.form.header.badge}
+              title={dict.form.header.title}
               center={false}
             />
             {sent ? (
               <div className="p-8 rounded-2xl bg-emerald-500/5 border border-emerald-500/30 text-center">
                 <div className="text-4xl mb-4">✓</div>
-                <h3 className="text-xl font-bold text-emerald-400 mb-2">Mensagem enviada!</h3>
+                <h3 className="text-xl font-bold text-emerald-400 mb-2">{dict.form.success.title}</h3>
                 <p className="text-zinc-400 text-sm">
-                  Obrigado pelo contacto. Responderemos assim que possível.
+                  {dict.form.success.description}
                 </p>
                 <button
                   onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
                   className="mt-6 px-5 py-2 rounded-lg bg-zinc-800 text-zinc-300 text-sm font-semibold hover:bg-zinc-700 transition-all"
                 >
-                  Nova mensagem
+                  {dict.form.success.button}
                 </button>
               </div>
             ) : (
@@ -54,54 +61,54 @@ export default function ContactsPage() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-[10px] text-zinc-500 uppercase tracking-wider font-bold mb-2">
-                      Nome
+                      {dict.form.labels.name}
                     </label>
                     <input
                       type="text"
                       required
                       value={form.name}
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                      placeholder="O teu nome"
+                      placeholder={dict.form.placeholders.name}
                       className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 placeholder-zinc-600 text-sm focus:outline-none focus:border-emerald-500/50 transition-all"
                     />
                   </div>
                   <div>
                     <label className="block text-[10px] text-zinc-500 uppercase tracking-wider font-bold mb-2">
-                      Email
+                      {dict.form.labels.email}
                     </label>
                     <input
                       type="email"
                       required
                       value={form.email}
                       onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                      placeholder="email@exemplo.com"
+                      placeholder={dict.form.placeholders.email}
                       className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 placeholder-zinc-600 text-sm focus:outline-none focus:border-emerald-500/50 transition-all"
                     />
                   </div>
                 </div>
                 <div>
                   <label className="block text-[10px] text-zinc-500 uppercase tracking-wider font-bold mb-2">
-                    Assunto
+                    {dict.form.labels.subject}
                   </label>
                   <input
                     type="text"
                     required
                     value={form.subject}
                     onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
-                    placeholder="Sobre o projeto..."
+                    placeholder={dict.form.placeholders.subject}
                     className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 placeholder-zinc-600 text-sm focus:outline-none focus:border-emerald-500/50 transition-all"
                   />
                 </div>
                 <div>
                   <label className="block text-[10px] text-zinc-500 uppercase tracking-wider font-bold mb-2">
-                    Mensagem
+                    {dict.form.labels.message}
                   </label>
                   <textarea
                     required
                     rows={6}
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                    placeholder="A tua mensagem..."
+                    placeholder={dict.form.placeholders.message}
                     className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 placeholder-zinc-600 text-sm focus:outline-none focus:border-emerald-500/50 transition-all resize-none"
                   />
                 </div>
@@ -109,15 +116,16 @@ export default function ContactsPage() {
                   type="submit"
                   className="px-6 py-3 rounded-lg bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] text-sm"
                 >
-                  Enviar Mensagem
+                  {dict.form.submit}
                 </button>
               </form>
             )}
           </div>
 
+          {/* Team and Info Column */}
           <div className="flex flex-col gap-8">
             <div>
-              <SectionHeader badge="Equipa" title="Grupo 11" center={false} />
+              <SectionHeader badge={dict.team.header.badge} title={dict.team.header.title} center={false} />
               <div className="grid grid-cols-2 gap-3">
                 {teamMembers.map((m) => (
                   <div
@@ -126,7 +134,7 @@ export default function ContactsPage() {
                   >
                     <span className="block font-bold text-zinc-200 text-sm">{m.name}</span>
                     <span className="block text-[11px] text-zinc-500 font-mono mt-0.5">
-                      nº {m.number}
+                      {dict.team.numberPrefix} {m.number}
                     </span>
                   </div>
                 ))}
@@ -135,7 +143,7 @@ export default function ContactsPage() {
 
             <div>
               <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
-                Orientadores
+                {dict.supervisors.title}
               </h3>
               <div className="flex flex-col gap-3">
                 {supervisors.map((s) => (
@@ -145,7 +153,7 @@ export default function ContactsPage() {
                   >
                     <span className="font-bold text-zinc-200 text-sm">{s.name}</span>
                     <span className="text-xs text-emerald-500/80 font-semibold uppercase tracking-wide">
-                      {s.title}
+                      {dict.supervisors.roles[s.title as keyof typeof dict.supervisors.roles] || s.title}
                     </span>
                   </div>
                 ))}
@@ -154,18 +162,18 @@ export default function ContactsPage() {
 
             <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800">
               <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
-                Instituição
+                {dict.institution.title}
               </h3>
-              <p className="font-bold text-zinc-200">Instituto Superior Técnico</p>
-              <p className="text-zinc-500 text-sm mt-1">Universidade de Lisboa</p>
-              <p className="text-zinc-600 text-sm mt-1">Av. Rovisco Pais, 1 · 1049-001 Lisboa</p>
+              <p className="font-bold text-zinc-200">{dict.institution.name}</p>
+              <p className="text-zinc-500 text-sm mt-1">{dict.institution.university}</p>
+              <p className="text-zinc-600 text-sm mt-1">{dict.institution.address}</p>
               <div className="mt-4 flex flex-col gap-2">
                 <a
                   href="/g11_report.pdf"
                   download
                   className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
                 >
-                  <span>↓</span> Download do Relatório Técnico (PDF)
+                  <span>↓</span> {dict.institution.downloadBtn}
                 </a>
               </div>
             </div>
