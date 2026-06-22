@@ -9,9 +9,7 @@ export default function RouteMap() {
   const { language } = useLanguage();
   const [activeRoute, setActiveRoute] = useState(routes[0].id);
 
-  // Safe dictionary extraction
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.routeMap || {
+  const dict = dictionaries[language]?.routeMap || {
     selectedRouteLabel: "Rota Selecionada",
     vtolLabel: "Island Hopper",
     vtolSub: "Voo direto VTOL",

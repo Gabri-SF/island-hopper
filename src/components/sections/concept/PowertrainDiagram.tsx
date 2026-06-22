@@ -6,9 +6,7 @@ import { dictionaries } from "../../../lib/data/dictionaries"; // Adjust path if
 export default function PowertrainDiagram() {
   const { language } = useLanguage();
   
-  // Safe extraction of the localized diagram elements configuration block
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.powertrainDiagram || {
+  const dict = dictionaries[language]?.powertrainDiagram || {
     proa: "▲ PROA",
     cauda: "▼ CAUDA",
     canard: "CANARD",

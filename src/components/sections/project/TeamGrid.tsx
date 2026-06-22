@@ -7,12 +7,11 @@ import { dictionaries } from "../../../lib/data/dictionaries"; // Adjust path if
 export default function TeamGrid() {
   const { language } = useLanguage();
 
-  // Safe dictionary data extraction with hard-coded safety fallbacks
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.teamGrid || {
+  const dict = dictionaries[language]?.teamGrid || {
     membersTitle: "Membros — Grupo 11",
     supervisorsTitle: "Orientadores",
-    numberPrefix: "nº"
+    numberPrefix: "nº",
+    titles: {}
   };
 
   return (

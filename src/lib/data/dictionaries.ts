@@ -145,7 +145,7 @@ export const dictionaries = {
         kpis: [
           {
             id: "range",
-            value: "140 km",
+            value: "150 km",
             label: "Autonomia",
             desc: "Rota principal Ibiza–Palma de Mallorca com 140 km de extensão, coberta sem escalas com o sistema híbrido Li-S + PEMFC H₂.",
           },
@@ -153,7 +153,7 @@ export const dictionaries = {
             id: "speed",
             value: "306 km/h",
             label: "Velocidade Cruzeiro",
-            desc: "85 m/s em cruzeiro a 3 000 ft, proporcionados pela aerodinâmica avançada da asa de razão de aspeto 9 e propulsão elétrica distribuída.",
+            desc: "85 m/s em cruzeiro a 7 500 ft, proporcionados pela aerodinâmica avançada da asa de razão de aspeto 9 e propulsão elétrica distribuída.",
           },
           {
             id: "noise",
@@ -171,7 +171,7 @@ export const dictionaries = {
             id: "weight",
             value: "2 595 kg",
             label: "MTOW (Peso Máx.)",
-            desc: "Peso máximo de descolagem: estrutura 692 kg, propulsão 417 kg, bateria Li-S 371 kg, célula PEMFC 130 kg, H₂ 16,6 kg e payload de 4 PAX + bagagem.",
+            desc: "Inclui 600 kg de payload ou 6 passageiros.",
           },
         ],
       },
@@ -267,7 +267,7 @@ export const dictionaries = {
         titleP1: "O",
         titleP2: "Conceito",
         description:
-          'Do processo de seleção de arquitetura via AHP até ao dimensionamento completo do "Mega-Duct" — a aeronave Tilt-Duct com 6 motores distribuídos e propulsão híbrida Li-S + PEMFC H₂.',
+          'Do processo de seleção de arquitetura via AHP até ao dimensionamento completo do Island Hopper — a aeronave Tilt-Duct com 6 motores distribuídos e propulsão híbrida Li-S + PEMFC H₂.',
       },
       architectures: {
         badge: "Arquiteturas",
@@ -283,7 +283,7 @@ export const dictionaries = {
       },
       specs: {
         badge: "Especificações",
-        title: "Dimensionamento do Mega-Duct",
+        title: "Dimensionamento do Island Hopper",
         subtitle:
           "Parâmetros técnicos chave do Island Hopper: geometria da asa, propulsão, desempenho e balanço de massa.",
       },
@@ -328,7 +328,7 @@ export const dictionaries = {
             label: "Turistas/Ano",
             desc: "2025 — procura sazonal",
           },
-          { value: "~€136", label: "Preço / Pax", desc: "Com margem de 50%" },
+          { value: "€91 - €135", label: "Preço / Pax", desc: "Com margem de 50%" },
           {
             value: "Premium",
             label: "Segmento",
@@ -417,7 +417,7 @@ export const dictionaries = {
         },
         pricing: {
           title: "Preço por Passageiro",
-          price: "≈€136",
+          price: "€91 - €135",
           subtitle: "por passageiro · com margem de 50%",
           benefits: [
             "Competitivo vs. helicóptero (€1.800+)",
@@ -762,22 +762,22 @@ export const dictionaries = {
         },
         vtolEnergy: {
           label: "Energia VTOL + Hover",
-          value: "20,20",
+          value: "20.20",
           unit: "kWh",
         },
         climbEnergy: {
           label: "Energia de Subida",
-          value: "21,60",
+          value: "21.60",
           unit: "kWh",
         },
         cruiseEnergy: {
           label: "Energia de Cruzeiro",
-          value: "32,30",
+          value: "32.30",
           unit: "kWh",
         },
         hybridMass: {
           label: "Massa do Sistema de Energia Híbrido",
-          value: "197,73",
+          value: "197.73",
           unit: "kg",
         },
         dcBusVoltage: {
@@ -898,7 +898,7 @@ export const dictionaries = {
       },
       summary: {
         totalLabel: "Total da Missão",
-        totalValue: "71,66 kWh",
+        totalValue: "71.66 kWh",
         durationLabel: "Duração total",
         durationValue: "≈34 min",
         distanceLabel: "Distância total",
@@ -925,7 +925,7 @@ export const dictionaries = {
       envergadura: "↔  Envergadura: 13 m",
       fuselagem: "Fuselagem: 9,89 m",
       caption:
-        'Vista superior esquemática — powertrain do Island Hopper "Mega-Duct" (não à escala) · Cap. 7 do Relatório',
+        'Vista superior esquemática — powertrain do Island Hopper (não à escala) · Cap. 7 do Relatório',
       legendTitle: "LEGENDA",
       legendLabel: "Canard · Asa · T-tail",
       labels: {
@@ -1315,7 +1315,7 @@ export const dictionaries = {
         kpis: [
           {
             id: "range",
-            value: "140 km",
+            value: "150 km",
             label: "Range",
             desc: "Main route Ibiza–Palma de Mallorca with a 140 km stretch, covered non-stop with the hybrid Li-S + PEMFC H₂ system.",
           },
@@ -1323,7 +1323,7 @@ export const dictionaries = {
             id: "speed",
             value: "306 km/h",
             label: "Cruise Speed",
-            desc: "85 m/s cruising at 3,000 ft, provided by the advanced aerodynamics of the aspect ratio 9 wing and distributed electric propulsion.",
+            desc: "85 m/s cruising at 7 500 ft, provided by the advanced aerodynamics of the aspect ratio 9 wing and distributed electric propulsion.",
           },
           {
             id: "noise",
@@ -1341,7 +1341,7 @@ export const dictionaries = {
             id: "weight",
             value: "2 595 kg",
             label: "MTOW (Max Weight)",
-            desc: "Maximum takeoff weight: structure 692 kg, propulsion 417 kg, Li-S battery 371 kg, PEMFC cell 130 kg, H₂ 16.6 kg, and a payload of 4 PAX + luggage.",
+            desc: "Including 600 kg payload or 6 passengers.",
           },
         ],
       },
@@ -1437,7 +1437,7 @@ export const dictionaries = {
         titleP1: "The",
         titleP2: "Concept",
         description:
-          'From the architecture selection process via AHP to the complete sizing of the "Mega-Duct" — the Tilt-Duct aircraft with 6 distributed engines and Li-S + PEMFC H₂ hybrid propulsion.',
+          'From the architecture selection process via AHP to the complete sizing of the Island Hopper — the Tilt-Duct aircraft with 6 distributed engines and Li-S + PEMFC H₂ hybrid propulsion.',
       },
       architectures: {
         badge: "Architectures",
@@ -1453,7 +1453,7 @@ export const dictionaries = {
       },
       specs: {
         badge: "Specifications",
-        title: "Mega-Duct Sizing",
+        title: "Island Hopper Sizing",
         subtitle:
           "Key technical parameters of the Island Hopper: wing geometry, propulsion, performance, and mass balance.",
       },
@@ -1499,7 +1499,7 @@ export const dictionaries = {
             desc: "2025 — seasonal demand",
           },
           {
-            value: "~€136",
+            value: "~€135",
             label: "Price / Pax",
             desc: "With 50% profit margin",
           },
@@ -1584,7 +1584,7 @@ export const dictionaries = {
         },
         pricing: {
           title: "Price per Passenger",
-          price: "≈€136",
+          price: "€91 - €135",
           subtitle: "per passenger · with 50% margin",
           benefits: [
             "Competitive vs. helicopter (€1,800+)",
@@ -2078,7 +2078,7 @@ export const dictionaries = {
       envergadura: "↔  Wingspan: 13 m",
       fuselagem: "Fuselage Length: 9.89 m",
       caption:
-        'Top schematic layout view — Island Hopper "Mega-Duct" hybrid powertrain architecture (not to scale) · Ch. 7 Report',
+        'Top schematic layout view — Island Hopper hybrid powertrain architecture (not to scale) · Ch. 7 Report',
       legendTitle: "MAP KEY",
       legendLabel: "Canard · Wing · T-tail",
       labels: {
@@ -2178,16 +2178,21 @@ export const dictionaries = {
         emissions: "CO₂ Emissions",
       },
       translations: {
-        // Maps standard data strings automatically to English equivalents
-        Ferry: "Maritime Ferry",
-        "Avião Comercial": "Commercial Airliner",
-        "Carro (via Ferry)": "Car (via Ferry Route)",
-        "Island Hopper eVTOL": "Island Hopper eVTOL",
-        "Direto de ponto a ponto": "Direct point-to-point network",
-        "Sujeito a horários/filas": "Subject to timetables & boarding lines",
-        "Inclui tempo de aeroporto":
-          "Includes airport security & check-in overhead",
-        "Zero (Propulsão H₂/Elétrica)": "Zero (H₂/Electric Powertrain)",
+        // mode names
+        "Avião Convencional": "Commercial Airliner",
+        "Ferry Rápido": "High-Speed Ferry",
+        "Helicóptero": "Helicopter",
+        "Island Hopper (VTOL)": "Island Hopper (VTOL)",
+        // travel times
+        "35–40 min (≈2–3 h c/ aeroporto)": "35–40 min (≈2–3 h with airport)",
+        "35–45 min (+10 min embarque)": "35–45 min (+10 min boarding)",
+        "33–35 min (+10 min embarque)": "33–35 min (+10 min boarding)",
+        // emissions
+        "≈27–85 kg CO₂ + ruído elevado": "≈27–85 kg CO₂ + high noise",
+        "≈15 kg CO₂-eq (H₂ verde + rede local)": "≈15 kg CO₂-eq (green H₂ + local grid)",
+        // notes
+        "Custo proibitivo e impacto sonoro significativo": "Prohibitive cost and significant noise impact",
+        "Zero emissões diretas em voo": "Zero direct in-flight emissions",
       },
     },
     routeMap: {

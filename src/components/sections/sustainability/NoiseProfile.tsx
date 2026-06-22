@@ -14,9 +14,7 @@ interface NoiseDataItem {
 export default function NoiseProfile() {
   const { language } = useLanguage();
 
-  // Safe dictionary extraction with fallback structures
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.noiseProfile || {
+  const dict = dictionaries[language]?.noiseProfile || {
     advantageTitle: "Vantagem dos Ducted Fans",
     noteText: "Nota: Valores de SPL aproximados baseados em literatura técnica e análise de referências equivalentes (Cap. 10 do Relatório Técnico). Medições em condições padronizadas ISO 3745.",
     cards: {

@@ -4,12 +4,10 @@ import { transportModes } from "@/lib/data/routes";
 import { useLanguage } from "@/components/context/LanguageContext"; // Adjust path if needed
 import { dictionaries } from "../../../lib/data/dictionaries"; // Adjust path if needed
 
-export default function MarketComparison() {
+export default function   MarketComparison() {
   const { language } = useLanguage();
 
-  // Safe dictionary data extraction with defaults
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.marketComparison || {
+  const dict = dictionaries[language]?.marketComparison || {
     headers: {
       mode: "Modo",
       time: "Tempo de Viagem",
@@ -42,11 +40,11 @@ export default function MarketComparison() {
           {transportModes.map((mode, i) => {
             const isVTOL = mode.mode.toLowerCase().includes("island hopper");
             
-            // Look up localized text using item names as keys, or fallback to original data fields
-            const localizedMode = dict.translations?.[mode.mode] || mode.mode;
-            const localizedNotes = mode.notes ? (dict.translations?.[mode.notes] || mode.notes) : null;
-            const localizedTime = dict.translations?.[mode.travelTime] || mode.travelTime;
-            const localizedEmissions = dict.translations?.[mode.emissionsPerPax] || mode.emissionsPerPax;
+            const t = (dict.translations ?? {}) as Record<string, string>;
+            const localizedMode = t[mode.mode] || mode.mode;
+            const localizedNotes = mode.notes ? (t[mode.notes] || mode.notes) : null;
+            const localizedTime = t[mode.travelTime] || mode.travelTime;
+            const localizedEmissions = t[mode.emissionsPerPax] || mode.emissionsPerPax;
 
             return (
               <tr

@@ -12,9 +12,7 @@ interface LocalizedCard {
 export default function PropulsionSystem() {
   const { language } = useLanguage();
 
-  // Safe dictionary data extraction with hard-coded safety fallbacks
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.propulsionSystem || {
+  const dict = dictionaries[language]?.propulsionSystem || {
     comparisonTitle: "Comparação: Híbrido vs. Totalmente Elétrico",
     selectedLabel: "Sistema Híbrido (selecionado)",
     hybridValue: "197,73 kg",

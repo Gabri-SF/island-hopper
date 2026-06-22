@@ -125,6 +125,13 @@ export default function ContactsPage() {
                 </button>
               </form>
             )}
+            <a
+              href="/island-hopper/g11_report.pdf"
+              download
+              className="mt-4 inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
+            >
+              <span>↓</span> {dict.institution.downloadBtn}
+            </a>
           </div>
 
           {/* Team and Info Column */}
@@ -146,40 +153,35 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div>
-              <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
-                {dict.supervisors.title}
-              </h3>
-              <div className="flex flex-col gap-3">
-                {supervisors.map((s) => (
-                  <div
-                    key={s.name}
-                    className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800 flex items-center justify-between"
-                  >
-                    <span className="font-bold text-zinc-200 text-sm">{s.name}</span>
-                    <span className="text-xs text-emerald-500/80 font-semibold uppercase tracking-wide">
-                      {dict.supervisors.roles[s.title as keyof typeof dict.supervisors.roles] || s.title}
-                    </span>
-                  </div>
-                ))}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
+                  {dict.supervisors.title}
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {supervisors.map((s) => (
+                    <div
+                      key={s.name}
+                      className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800 flex flex-col gap-1"
+                    >
+                      <span className="font-bold text-zinc-200 text-sm">{s.name}</span>
+                      <span className="text-xs text-emerald-500/80 font-semibold uppercase tracking-wide">
+                        {dict.supervisors.roles[s.title as keyof typeof dict.supervisors.roles] || s.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800">
-              <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
-                {dict.institution.title}
-              </h3>
-              <p className="font-bold text-zinc-200">{dict.institution.name}</p>
-              <p className="text-zinc-500 text-sm mt-1">{dict.institution.university}</p>
-              <p className="text-zinc-600 text-sm mt-1">{dict.institution.address}</p>
-              <div className="mt-4 flex flex-col gap-2">
-                <a
-                  href="/island-hopper/g11_report.pdf"
-                  download
-                  className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
-                >
-                  <span>↓</span> {dict.institution.downloadBtn}
-                </a>
+              <div>
+                <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-4">
+                  {dict.institution.title}
+                </h3>
+                <div className="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800 flex flex-col gap-2">
+                  <p className="font-bold text-zinc-200 text-sm">{dict.institution.name}</p>
+                  <p className="text-zinc-500 text-sm">{dict.institution.university}</p>
+                  <p className="text-zinc-600 text-xs">{dict.institution.address}</p>
+                </div>
               </div>
             </div>
           </div>

@@ -6,9 +6,7 @@ import { dictionaries } from "../../../lib/data/dictionaries"; // Adjust path if
 export default function ReportDownload() {
   const { language } = useLanguage();
 
-  // Safe dictionary data extraction with clear defaults
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.reportDownload || {
+  const dict = dictionaries[language]?.reportDownload || {
     title: "Relatório Técnico Completo",
     meta: "96 páginas · PDF · IST 2026 · Grupo 11",
     description: "Inclui dimensionamento aerodinâmico, propulsão híbrida, análise de estabilidade, avaliação de ciclo de vida e estimativas de custos operacionais.",

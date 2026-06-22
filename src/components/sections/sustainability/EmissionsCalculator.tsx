@@ -8,9 +8,7 @@ export default function EmissionsCalculator() {
   const { language } = useLanguage();
   const [active, setActive] = useState<"green" | "grey">("green");
 
-  // Safe dictionary extraction with fallback safeguards
-  const specDict = dictionaries[language]?.specs as Record<string, any> | undefined;
-  const dict = specDict?.emissionsCalculator || {
+  const dict = dictionaries[language]?.emissionsCalculator || {
     comparisonTitle: "Comparação com Modos Convencionais (por voo, 7 pax)",
     perPassengerLabel: "Por passageiro",
     perFlightUnit: "kg CO₂-eq / voo",
