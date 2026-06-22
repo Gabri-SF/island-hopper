@@ -16,6 +16,9 @@ export default function ContactsPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const recipients = "gabrielsfaria@tecnico.ulisboa.pt,goncalo.pedra.bento.rodrigues@tecnico.ulisboa.pt";
+    const body = `From: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
+    window.location.href = `mailto:${recipients}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
 
@@ -25,7 +28,9 @@ export default function ContactsPage() {
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-20">
         <Badge variant="default">{dict.hero.badge}</Badge>
         <h1 className="mt-6 text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-zinc-50">
-          {dict.hero.title}
+          <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            {dict.hero.title}
+          </span>
         </h1>
         <p className="mt-6 text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl">
           {dict.hero.description}
