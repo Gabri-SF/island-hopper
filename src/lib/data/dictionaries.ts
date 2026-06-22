@@ -182,7 +182,7 @@ export const dictionaries = {
         titleP1: "O Projeto",
         titleP2: "Island Hopper",
         description:
-          "Projeto Integrado de 1.º Ciclo em Engenharia Aeroespacial no Instituto Superior Técnico, Universidade de Lisboa. Concebemos e dimensionamos um eVTOL inter-ilhas com arquitetura Tilt-Duct para servir as Ilhas Baleares.",
+          "Projeto Integrador de 1.º Ciclo em Engenharia Aeroespacial no Instituto Superior Técnico, Universidade de Lisboa. Concebemos e dimensionamos um eVTOL inter-ilhas com arquitetura Tilt-Duct para servir as Ilhas Baleares.",
       },
       motivation: {
         header: {
@@ -239,11 +239,11 @@ export const dictionaries = {
           badge: "Contexto Académico",
           title: "Instituto Superior Técnico",
           subtitle:
-            "Projeto desenvolvido no âmbito da unidade curricular de Projeto Integrado de 1.º Ciclo em Engenharia Aeroespacial.",
+            "Projeto desenvolvido no âmbito da unidade curricular de Projeto Integrador de 1.º Ciclo em Engenharia Aeroespacial.",
         },
         course: {
           label: "Unidade Curricular",
-          title: "Projeto Integrado de 1.º Ciclo",
+          title: "Projeto Integrador de 1.º Ciclo",
           subtitle: "Engenharia Aeroespacial · IST",
         },
         year: {

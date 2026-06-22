@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { teamMembers, supervisors } from "@/lib/data/team";
 import { useLanguage } from "@/components/context/LanguageContext"; // Adjust path if needed
@@ -26,9 +27,7 @@ export default function Footer() {
           {/* Logo & Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded bg-emerald-500 flex items-center justify-center font-bold text-zinc-950 text-sm">
-                IH
-              </div>
+              <Image src="island-hopper/favicon.ico" alt="Island Hopper" width={32} height={32} className="rounded" />
               <span className="font-extrabold tracking-wider text-sm text-zinc-300">ISLAND HOPPER</span>
             </div>
             <p className="text-zinc-500 leading-relaxed">

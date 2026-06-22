@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext"; // Adjust import path
@@ -20,9 +21,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <div className="w-8 h-8 rounded bg-emerald-500 flex items-center justify-center font-bold text-zinc-950 text-sm">
-            IH
-          </div>
+          <Image src="/island-hopper/favicon.ico" alt="Island Hopper" width={32} height={32} className="rounded" />
           <div>
             <span className="font-extrabold tracking-wider text-lg bg-gradient-to-r from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
               ISLAND HOPPER
