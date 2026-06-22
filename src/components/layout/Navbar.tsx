@@ -21,7 +21,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Image src="/island-hopper/favicon.ico" alt="Island Hopper" width={32} height={32} className="rounded" />
+          <Image src="/island-hopper/logo.png" alt="Island Hopper" width={32} height={32} className="rounded" />
           <div>
             <span className="font-extrabold tracking-wider text-lg bg-gradient-to-r from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
               ISLAND HOPPER
