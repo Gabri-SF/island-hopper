@@ -400,25 +400,25 @@ export const dictionaries = {
             "Preço por passageiro calculado para cobrir custos operacionais com margem de lucro de 50%.",
         },
         costBreakdown: {
-          title: "Custo Operacional por Voo",
+          title: "Estudo de Custos",
           items: [
             {
-              label: "Energia (71,66 kWh × tarifa H₂/elétrica)",
-              value: "~€42",
+              label: "Suposição de aeronaves produzidas",
+              value: "149 unidades",
             },
-            { label: "Manutenção (amortizada por voo)", value: "~€45" },
-            { label: "Seguro e regulação", value: "~€18" },
-            { label: "Operações & handling", value: "~€15" },
+            { label: "Preço por unidade", value: "$5M" },
+            { label: "Amortização do preço da unidade por voo", value: "~275$" },
+            { label: "Consumíveis e margem de manutenção", value: "100%" },
           ],
           total: {
-            label: "Total por voo (6 pax)",
-            value: "~€120",
+            label: "Total por voo (6 pax, sem lucro)",
+            value: "~550$",
           },
         },
         pricing: {
           title: "Preço por Passageiro",
           price: "€91 - 135",
-          subtitle: "por passageiro · com margem de 50%",
+          subtitle: "por passageiro · com margem de lucro de 50%",
           benefits: [
             "Competitivo vs. helicóptero (€1.800+)",
             "Premium justificado pela velocidade",
@@ -1570,22 +1570,22 @@ export const dictionaries = {
             "Price per passenger calculated to cover operating costs with a 50% profit margin.",
         },
         costBreakdown: {
-          title: "Operating Cost per Flight",
+          title: "Costs Study",
           items: [
-            { label: "Energy (71.66 kWh × H₂/electric rate)", value: "~€42" },
-            { label: "Maintenance (amortized per flight)", value: "~€45" },
-            { label: "Insurance and regulation", value: "~€18" },
-            { label: "Operations & handling", value: "~€15" },
+            { label: "Assumption of aircraft produced", value: "149 units" },
+            { label: "Price per unit", value: "$5M" },
+            { label: "Per flight amortization of unit price", value: "~275$" },
+            { label: "Consumables and Maintenance margin", value: "100%" },
           ],
           total: {
-            label: "Total per flight (6 pax)",
-            value: "~€120",
+            label: "Total per flight (6 pax, no profit)",
+            value: "~550$",
           },
         },
         pricing: {
           title: "Price per Passenger",
           price: "€91 - 135",
-          subtitle: "per passenger · with 50% margin",
+          subtitle: "per passenger · with 50% profit margin",
           benefits: [
             "Competitive vs. helicopter (€1,800+)",
             "Premium justified by speed",
