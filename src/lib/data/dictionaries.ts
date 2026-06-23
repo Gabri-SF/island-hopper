@@ -535,7 +535,6 @@ export const dictionaries = {
           badge: "Equipa",
           title: "Grupo 11",
         },
-        numberPrefix: "nº",
       },
       supervisors: {
         title: "Orientadores",
@@ -1011,7 +1010,6 @@ export const dictionaries = {
     teamGrid: {
       membersTitle: "Membros — Grupo 11",
       supervisorsTitle: "Orientadores",
-      numberPrefix: "nº",
       titles: {
         Supervisor: "Orientador",
         "Co-Supervisor": "Coorientador",
@@ -1702,7 +1700,6 @@ export const dictionaries = {
           badge: "Team",
           title: "Group 11",
         },
-        numberPrefix: "No.",
       },
       supervisors: {
         title: "Advisors",
@@ -2164,7 +2161,6 @@ export const dictionaries = {
     teamGrid: {
       membersTitle: "Team Members — Group 11",
       supervisorsTitle: "Academic Advisors",
-      numberPrefix: "No.",
       titles: {
         Supervisor: "Advisor",
         "Co-Supervisor": "Co-Advisor",

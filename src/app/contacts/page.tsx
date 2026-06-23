@@ -156,9 +156,6 @@ export default function ContactsPage() {
                     className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800 hover:border-emerald-500/20 transition-all"
                   >
                     <span className="block font-bold text-zinc-200 text-sm">{m.name}</span>
-                    <span className="block text-[11px] text-zinc-500 font-mono mt-0.5">
-                      {dict.team.numberPrefix} {m.number}
-                    </span>
                   </div>
                 ))}
               </div>
