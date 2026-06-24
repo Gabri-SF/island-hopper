@@ -61,11 +61,6 @@ export default function Home() {
       <main className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24 grid lg:grid-cols-12 gap-12 items-center">
         {/* Left Content */}
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 w-fit">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            {dict.hero.badge}
-          </div>
-          
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1] text-zinc-50">
             {dict.hero.titleP1}{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
